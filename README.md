@@ -124,6 +124,24 @@ First vertical experiment:
 - [Конфигурация первого турнира](configs/tournaments/m0_first_league.yaml)
 - [Политика безопасности оператора](docs/operator-safety.md)
 
+### Запуск контрольной лиги
+
+```bash
+python -m father_quant_lab run-controls \
+  --data data/samples/eurusd_daily_sample.csv \
+  --output reports/generated/m0-controls.json
+```
+
+Документация реализации:
+
+- [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)
+- [Аналитические схемы](docs/analytical-schemes.md)
+- [План независимого тестирования](docs/test-plan.md)
+- [ADR-0001: минимальный эталонный движок](docs/adr/0001-reference-engine.md)
+- [ADR-0002: исполнение на следующем баре](docs/adr/0002-next-bar-execution.md)
+- [ТЗ профессиональной торговой консоли](docs/specifications/trading-console.md)
+- [ADR-0003: терминал отделён от торгового ядра](docs/adr/0003-console-boundary.md)
+
 ## Safety boundary
 
 - No real-money trading.

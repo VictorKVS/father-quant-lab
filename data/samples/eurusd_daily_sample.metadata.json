@@ -1,0 +1,11 @@
+{
+  "dataset_id": "DATA-SAMPLE-EURUSD-0001",
+  "classification": "MODELLED",
+  "instrument": "EUR/USD",
+  "purpose": "deterministic tests and CLI demonstration",
+  "source": "synthetic fixture created for FATHER Quant Lab",
+  "real_market_data": false,
+  "redistributable": true,
+  "timezone": "UTC",
+  "warning": "Do not use this sample for strategy performance claims."
+}

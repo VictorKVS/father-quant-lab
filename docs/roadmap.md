@@ -10,6 +10,7 @@
 - S5: transaction-cost, execution and independent risk models
 - S6: historical regimes, synthetic stress and cross-engine verification
 - S7: shadow mode and paper-trading simulator
+- S8: Trading Console UI-L0/UI-L2 — replay, robot league, evidence and risk panels
 
 ## M1 — Economic events
 
@@ -22,3 +23,9 @@ Evidence-based event cards, causal mechanisms, confidence levels, and counter-ev
 ## M3 — Crypto extension
 
 BTC market data, 24/7 execution rules, exchange-specific costs, and liquidity regimes.
+
+## M4 — Professional Paper Trading Console
+
+Streaming market workspace, multi-chart, order book, paper order ticket, portfolio,
+risk preview, AI evidence, robot tournament and incident-safe operations. Live mode
+remains outside the approved scope.
