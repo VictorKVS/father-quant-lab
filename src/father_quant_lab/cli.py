@@ -8,6 +8,7 @@ from pathlib import Path
 
 from .data import load_bars_csv
 from .engine import BacktestEngine, ExecutionCostModel, RiskPolicy
+from .evidence import build_run_passport, write_json
 from .reporting import league_report, write_report
 from .strategies import control_strategies
 
@@ -18,6 +19,11 @@ def build_parser() -> argparse.ArgumentParser:
     controls = subparsers.add_parser("run-controls", help="run mandatory control robots")
     controls.add_argument("--data", type=Path, required=True)
     controls.add_argument("--output", type=Path, required=True)
+    controls.add_argument(
+        "--passport",
+        type=Path,
+        help="evidence passport path; defaults to <output>.passport.json",
+    )
     controls.add_argument("--seed", type=int, default=20260816)
     return parser
 
@@ -55,6 +61,18 @@ def main(argv: list[str] | None = None) -> int:
             },
         }
         destination = write_report(args.output, league_report(results, run_config=run_config))
+        passport_path = args.passport or destination.with_name(
+            f"{destination.stem}.passport.json"
+        )
+        passport = build_run_passport(
+            run_id=f"RUN-M0-CONTROLS-SEED-{args.seed}",
+            report_path=destination,
+            dataset_path=args.data,
+            seed=args.seed,
+            results=results,
+        )
+        passport_destination = write_json(passport_path, passport)
         print(destination)
+        print(passport_destination)
         return 0
     raise AssertionError("unreachable command")

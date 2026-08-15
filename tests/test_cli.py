@@ -24,6 +24,8 @@ class CliTests(unittest.TestCase):
                 ]
             )
             report = json.loads(output.read_text(encoding="utf-8"))
+            passport_path = output.with_name("controls.passport.json")
+            passport = json.loads(passport_path.read_text(encoding="utf-8"))
 
         expected_hash = hashlib.sha256(fixture.read_bytes()).hexdigest()
         self.assertEqual(exit_code, 0)
@@ -35,6 +37,11 @@ class CliTests(unittest.TestCase):
         self.assertFalse(report["run_config"]["risk"]["short_allowed"])
         self.assertFalse(report["run_config"]["risk"]["leverage_allowed"])
         self.assertEqual(len(report["results"]), 4)
+        self.assertEqual(passport["passport_type"], "experiment_run")
+        self.assertEqual(passport["provenance"]["report_path"], output.as_posix())
+        self.assertEqual(passport["provenance"]["dataset_sha256"], expected_hash)
+        self.assertTrue(passport["safety"]["live_orders_forbidden"])
+        self.assertIn("future profitability", passport["interpretation"]["not_proved"])
 
 
 if __name__ == "__main__":

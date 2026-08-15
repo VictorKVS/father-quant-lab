@@ -132,6 +132,10 @@ python -m father_quant_lab run-controls \
   --output reports/generated/m0-controls.json
 ```
 
+Команда создаёт два связанных файла: полный отчёт `m0-controls.json` и паспорт
+доказательств `m0-controls.passport.json`. Паспорт связывает исходную идею, ТЗ,
+ADR, код, тесты, среду, хеши данных и отчёта, метрики, ограничения, решение и уроки.
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)
@@ -141,6 +145,7 @@ python -m father_quant_lab run-controls \
 - [ADR-0002: исполнение на следующем баре](docs/adr/0002-next-bar-execution.md)
 - [ТЗ профессиональной торговой консоли](docs/specifications/trading-console.md)
 - [ADR-0003: терминал отделён от торгового ядра](docs/adr/0003-console-boundary.md)
+- [Стандарт паспортов и полного цикла доказательств](docs/artifact-passports.md)
 
 ## Safety boundary
 
