@@ -52,6 +52,10 @@ execution:
   partial_fills_enabled: false
 
 gates:
+  loss_recovery_objective_forbidden: true
+  risk_increase_after_loss_forbidden: true
+  martingale_forbidden: true
+  same_session_kill_switch_override_forbidden: true
   forbid_look_ahead: true
   require_data_provenance: true
   require_out_of_sample: true
