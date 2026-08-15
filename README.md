@@ -122,6 +122,7 @@ First vertical experiment:
 - [Каталог торговых роботов и контрольных агентов](docs/robot-catalog.md)
 - [Исторические и синтетические сценарии полигона](docs/polygon-scenarios.md)
 - [Конфигурация первого турнира](configs/tournaments/m0_first_league.yaml)
+- [Политика безопасности оператора](docs/operator-safety.md)
 
 ## Safety boundary
 
