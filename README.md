@@ -111,6 +111,18 @@ First vertical experiment:
 6. Add commissions, spread, slippage, and strict event timestamps.
 7. Run paper trading only after backtest gates pass.
 
+## Полигон роботов
+
+Проект сравнивает не одну «лучшую стратегию», а разнообразные семейства роботов,
+контрольные алгоритмы и независимых агентов риска. Общий уровень кандидата равен
+самому слабому критическому звену. Доходность не повышает зрелость при плохих
+данных, переобучении, нереалистичном исполнении или нарушении risk limits.
+
+- [Модель зрелости L0–L7](docs/maturity-model.md)
+- [Каталог торговых роботов и контрольных агентов](docs/robot-catalog.md)
+- [Исторические и синтетические сценарии полигона](docs/polygon-scenarios.md)
+- [Конфигурация первого турнира](configs/tournaments/m0_first_league.yaml)
+
 ## Safety boundary
 
 - No real-money trading.
