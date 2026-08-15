@@ -3,13 +3,13 @@
 ## M0 — Electronic Market History
 
 - S0: repository and governance skeleton
-- S1: dataset contract and provenance model
-- S2: official daily FX data adapter
-- S3: deterministic backtest engine
-- S4: moving-average baseline
-- S5: transaction-cost and risk model
-- S6: regime comparison report
-- S7: paper-trading simulator
+- S1: maturity model, robot registry, polygon scenarios and dataset contract
+- S2: official daily FX data adapter and provenance model
+- S3: deterministic reference backtest engine
+- S4: first controlled league with control and rule-based robots
+- S5: transaction-cost, execution and independent risk models
+- S6: historical regimes, synthetic stress and cross-engine verification
+- S7: shadow mode and paper-trading simulator
 
 ## M1 — Economic events
 
