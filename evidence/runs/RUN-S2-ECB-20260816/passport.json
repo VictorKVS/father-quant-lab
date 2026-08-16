@@ -1,0 +1,53 @@
+{
+  "artifact_id": "DATA-ECB-EURUSD-2026-01-02-2026-01-09",
+  "artifact_type": "reference_rate_dataset",
+  "decision": "admit for provenance and macro context only",
+  "inputs": [
+    "evidence/runs/RUN-S2-ECB-20260816/eurusd.raw.csv"
+  ],
+  "lessons": [
+    "official does not mean tradable",
+    "observation time differs from availability time"
+  ],
+  "limitations": [
+    "reference rate is not an executable bid, ask, trade or OHLC bar",
+    "dataset is forbidden as direct input to BacktestEngine",
+    "publication timing must be modelled before event studies"
+  ],
+  "outputs": [
+    "evidence/runs/RUN-S2-ECB-20260816/eurusd.reference.csv"
+  ],
+  "owner_role": "DATA_ENGINEER",
+  "provenance": {
+    "canonical_path": "evidence/runs/RUN-S2-ECB-20260816/eurusd.reference.csv",
+    "canonical_sha256": "2b4366a39287356bd1512a2c7041d3f40e270349b9990553f588c8b6c20c2f99",
+    "first_observation": "2026-01-02",
+    "last_observation": "2026-01-09",
+    "observation_count": 6,
+    "publisher": "European Central Bank",
+    "raw_path": "evidence/runs/RUN-S2-ECB-20260816/eurusd.raw.csv",
+    "raw_sha256": "62e5b6625b7e0bd8df7a8c46b65a0b64b9045815b7d4273cce538be44056b209",
+    "retrieved_at": "2026-08-16T02:00:29.121455+00:00"
+  },
+  "purpose": "official macro reference and provenance validation",
+  "relations": [
+    "FQL-S2-FR-001",
+    "ADR-0004"
+  ],
+  "safety": {
+    "backtest_eligible": false,
+    "live_orders_forbidden": true
+  },
+  "schema_version": "1.0.0",
+  "sha256": "2b4366a39287356bd1512a2c7041d3f40e270349b9990553f588c8b6c20c2f99",
+  "source_basis": [
+    "ECB Data Portal",
+    "EXR.D.USD.EUR.SP00.A",
+    "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?startPeriod=2026-01-01&endPeriod=2026-01-10&format=csvdata"
+  ],
+  "status": "ingested_unreviewed",
+  "verification": [
+    "tests/test_reference_data.py"
+  ],
+  "version": "1.0.0"
+}

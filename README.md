@@ -146,6 +146,21 @@ ADR, код, тесты, среду, хеши данных и отчёта, ме
 - [ТЗ профессиональной торговой консоли](docs/specifications/trading-console.md)
 - [ADR-0003: терминал отделён от торгового ядра](docs/adr/0003-console-boundary.md)
 - [Стандарт паспортов и полного цикла доказательств](docs/artifact-passports.md)
+- [ТЗ S2: официальный справочный курс ECB](docs/specifications/m0-s2-ecb-reference-data.md)
+- [ADR-0004: справочный курс не является торговым баром](docs/adr/0004-reference-rates-are-not-bars.md)
+
+### Официальный справочный ряд ECB
+
+```bash
+python -m father_quant_lab fetch-ecb-reference \
+  --start 2026-01-01 --end 2026-01-31 \
+  --raw-output data/raw/ecb/eurusd-2026-01.raw.csv \
+  --output data/processed/ecb/eurusd-2026-01.reference.csv \
+  --passport reports/generated/eurusd-2026-01.ecb.passport.json
+```
+
+Это официальный дневной reference rate для макроконтекста и проверки provenance,
+а не исполнимая цена. Команда не запускает бэктест и сохраняет `backtest_eligible=false`.
 
 ## Safety boundary
 

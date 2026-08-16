@@ -4,12 +4,21 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 from .data import load_bars_csv
 from .engine import BacktestEngine, ExecutionCostModel, RiskPolicy
 from .evidence import build_run_passport, write_json
 from .reporting import league_report, write_report
+from .reference_data import (
+    build_ecb_url,
+    build_reference_passport,
+    fetch_ecb_csv,
+    parse_ecb_csv,
+    write_passport,
+    write_reference_csv,
+)
 from .strategies import control_strategies
 
 
@@ -25,6 +34,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="evidence passport path; defaults to <output>.passport.json",
     )
     controls.add_argument("--seed", type=int, default=20260816)
+    reference = subparsers.add_parser(
+        "fetch-ecb-reference", help="fetch official non-tradable EUR/USD reference rates"
+    )
+    reference.add_argument("--start", type=date.fromisoformat, required=True)
+    reference.add_argument("--end", type=date.fromisoformat, required=True)
+    reference.add_argument("--raw-output", type=Path, required=True)
+    reference.add_argument("--output", type=Path, required=True)
+    reference.add_argument("--passport", type=Path, required=True)
     return parser
 
 
@@ -74,5 +91,24 @@ def main(argv: list[str] | None = None) -> int:
         passport_destination = write_json(passport_path, passport)
         print(destination)
         print(passport_destination)
+        return 0
+    if args.command == "fetch-ecb-reference":
+        source_url = build_ecb_url(args.start, args.end)
+        raw = fetch_ecb_csv(source_url)
+        args.raw_output.parent.mkdir(parents=True, exist_ok=True)
+        args.raw_output.write_bytes(raw)
+        observations = parse_ecb_csv(raw)
+        canonical = write_reference_csv(args.output, observations)
+        passport = build_reference_passport(
+            source_url=source_url,
+            raw_path=args.raw_output,
+            canonical_path=canonical,
+            observations=observations,
+            retrieved_at=datetime.now(UTC),
+        )
+        destination = write_passport(args.passport, passport)
+        print(args.raw_output)
+        print(canonical)
+        print(destination)
         return 0
     raise AssertionError("unreachable command")
