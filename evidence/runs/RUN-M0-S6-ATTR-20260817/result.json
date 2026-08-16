@@ -1,0 +1,48 @@
+{
+  "artifact_id": "FQL-REGIME-ATTRIBUTION-001",
+  "dataset": {
+    "classification": "MODELLED",
+    "path": "data/samples/eurusd_daily_sample.csv",
+    "sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a"
+  },
+  "equity_observation_count": 12,
+  "groups": [
+    {
+      "compounded_interval_return": -0.004890417856870388,
+      "exposed_observation_count": 2,
+      "mean_interval_return": -0.0012195394315104024,
+      "observation_count": 4,
+      "positive_interval_count": 1,
+      "regime": "RANGE|NORMAL",
+      "trend": "RANGE",
+      "volatility": "NORMAL",
+      "worst_interval_return": -0.006679389312977291
+    },
+    {
+      "compounded_interval_return": -0.0029740694634705633,
+      "exposed_observation_count": 1,
+      "mean_interval_return": -0.000991356487823521,
+      "observation_count": 3,
+      "positive_interval_count": 0,
+      "regime": "UP|NORMAL",
+      "trend": "UP",
+      "volatility": "NORMAL",
+      "worst_interval_return": -0.0029740694634705633
+    }
+  ],
+  "instrument": "EUR/USD",
+  "labelled_interval_count": 7,
+  "labelled_interval_ratio": 0.6363636363636364,
+  "live_orders_forbidden": true,
+  "mode": "retrospective_diagnostics_only",
+  "paper_trading_allowed": false,
+  "performance_claim_allowed": false,
+  "regime_report": {
+    "path": "evidence/runs/RUN-M0-S6-REGIME-20260816/result.json",
+    "sha256": "91e7bfe576579ebb46668f7c5a7983caf170f32e42ee6e46a37fae1a28bba8ef"
+  },
+  "regimes_used_for_strategy_decisions": false,
+  "schema_version": "1.0.0",
+  "strategy_id": "BOT-RULE-101",
+  "unlabelled_interval_count": 4
+}

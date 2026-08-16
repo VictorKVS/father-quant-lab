@@ -193,6 +193,18 @@ python -m father_quant_lab label-regimes \
 диагностический MODELLED-прототип: он не утверждает истинный режим рынка, не
 оптимизирует пороги и не разрешает PAPER/LIVE.
 
+Ретроспективная атрибуция equity выполняется отдельной командой:
+
+```bash
+python -m father_quant_lab attribute-regime-performance \
+  --data data/samples/eurusd_daily_sample.csv \
+  --regimes evidence/runs/RUN-M0-S6-REGIME-20260816/result.json \
+  --output evidence/local/regime-attribution.json
+```
+
+Метки не передаются стратегии и не меняют заявки. Короткий MODELLED результат
+показывает только работу соединения timestamps, а не сравнительное качество режимов.
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)

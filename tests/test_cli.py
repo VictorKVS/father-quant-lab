@@ -8,6 +8,26 @@ from father_quant_lab.cli import main
 
 
 class CliTests(unittest.TestCase):
+    def test_cli_attributes_regimes_without_using_them_for_decisions(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "attribution.json"
+            exit_code = main(
+                [
+                    "attribute-regime-performance",
+                    "--data",
+                    "data/samples/eurusd_daily_sample.csv",
+                    "--regimes",
+                    "evidence/runs/RUN-M0-S6-REGIME-20260816/result.json",
+                    "--output",
+                    str(output),
+                ]
+            )
+            report = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(report["labelled_interval_count"], 7)
+        self.assertFalse(report["regimes_used_for_strategy_decisions"])
+        self.assertFalse(report["paper_trading_allowed"])
+
     def test_cli_creates_causal_regime_report(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "regimes.json"

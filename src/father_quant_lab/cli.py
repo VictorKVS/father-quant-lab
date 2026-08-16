@@ -27,6 +27,7 @@ from .reference_data import (
     write_reference_csv,
 )
 from .regimes import CausalRegimeClassifier, build_regime_report
+from .regime_attribution import attribute_result, load_regime_report
 from .strategies import control_strategies, first_rule_league
 from .vendor_due_diligence import evaluate_dossiers, load_dossiers
 
@@ -93,6 +94,15 @@ def build_parser() -> argparse.ArgumentParser:
     regimes.add_argument("--lookback-bars", type=int, default=5)
     regimes.add_argument("--trend-threshold-bps", type=float, default=20.0)
     regimes.add_argument("--high-volatility-threshold-bps", type=float, default=50.0)
+    attribution = subparsers.add_parser(
+        "attribute-regime-performance",
+        help="retrospectively attribute BOT-RULE-101 equity intervals to regime labels",
+    )
+    attribution.add_argument("--data", type=Path, required=True)
+    attribution.add_argument("--regimes", type=Path, required=True)
+    attribution.add_argument("--output", type=Path, required=True)
+    attribution.add_argument("--short-window", type=int, default=3)
+    attribution.add_argument("--long-window", type=int, default=5)
     return parser
 
 
@@ -257,6 +267,27 @@ def main(argv: list[str] | None = None) -> int:
             bars,
             classifier,
             dataset_sha256=hashlib.sha256(args.data.read_bytes()).hexdigest(),
+        )
+        destination = write_json(args.output, report)
+        print(destination)
+        return 0
+    if args.command == "attribute-regime-performance":
+        bars = load_bars_csv(args.data)
+        strategy = first_rule_league(
+            20260816,
+            short_window=args.short_window,
+            long_window=args.long_window,
+        )[-1]
+        result = BacktestEngine(
+            initial_equity=10_000,
+            costs=ExecutionCostModel(),
+            risk=RiskPolicy(max_position_weight=1.0, max_drawdown=0.10),
+        ).run(bars, strategy)
+        report = attribute_result(
+            result,
+            load_regime_report(args.regimes),
+            dataset_path=args.data,
+            regime_report_path=args.regimes,
         )
         destination = write_json(args.output, report)
         print(destination)

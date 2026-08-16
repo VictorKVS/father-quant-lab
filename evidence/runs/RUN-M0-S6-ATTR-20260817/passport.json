@@ -1,0 +1,61 @@
+{
+  "artifact_id": "RUN-M0-S6-ATTR-20260817",
+  "artifact_type": "retrospective_regime_attribution_run",
+  "purpose": "Attribute an unchanged BOT-RULE-101 equity curve to causal diagnostic regimes",
+  "owner_role": "AGT-CRITIC-405",
+  "source_basis": ["docs/research-methodology.md", "docs/specifications/m0-s6-regime-attribution.md"],
+  "inputs": ["data/samples/eurusd_daily_sample.csv", "evidence/runs/RUN-M0-S6-REGIME-20260816/result.json"],
+  "outputs": ["evidence/runs/RUN-M0-S6-ATTR-20260817/result.json"],
+  "relations": ["FQL-S6-ATTR-002", "ADR-0011", "BOT-RULE-101", "FQL-REGIME-LABELS-001"],
+  "version": "1.0.0",
+  "sha256": "ef4118b1f63c573000d95239d30f0f5b17f7a1fee5a919eaa3d9ebc5a9229691",
+  "sha256_basis": "evidence/runs/RUN-M0-S6-ATTR-20260817/result.json",
+  "status": "ACCEPTED_RETROSPECTIVE_MECHANICS_ONLY",
+  "lifecycle": {
+    "idea": "Explain the existing modelled loss by diagnostic regime without changing the robot",
+    "source": "FQL-S6-REG-001 and the mandatory failure analysis by regime",
+    "hypothesis": "Causal labels and equity points can be joined deterministically by timestamp",
+    "requirement": "FQL-S6-ATTR-002",
+    "design": "ADR-0011",
+    "code": "src/father_quant_lab/regime_attribution.py",
+    "test": ["tests/test_regime_attribution.py", "tests/test_cli.py"],
+    "run": "python -m father_quant_lab attribute-regime-performance",
+    "result": "7 labelled intervals; RANGE|NORMAL -0.489%; UP|NORMAL -0.297%",
+    "critique": "Groups contain only 4 and 3 observations and cannot be compared statistically",
+    "decision": "Accept timestamp join mechanics; reject regime-performance inference",
+    "lesson": "Diagnostics may explain a fixed run but must not silently become a strategy input"
+  },
+  "provenance": {
+    "dataset_sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a",
+    "regime_report_sha256": "91e7bfe576579ebb46668f7c5a7983caf170f32e42ee6e46a37fae1a28bba8ef",
+    "code_sha256": "874ccb17a0526bd1902b5c0445ace77e30cff5a0f9858341f037a232d3c00ce0",
+    "python": "3.12.13",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
+  },
+  "limitations": [
+    "MODELLED data only",
+    "only 7 labelled intervals and 2 observed groups",
+    "regime thresholds are uncalibrated",
+    "no inference, ranking or strategy selection is justified"
+  ],
+  "verification": [
+    "66 unit tests passed",
+    "duplicate and unknown timestamps fail closed",
+    "availability mismatch fails closed",
+    "regimes_used_for_strategy_decisions is false",
+    "compileall and git diff --check passed"
+  ],
+  "decision": "ACCEPT_JOIN_MECHANICS_ONLY",
+  "lessons": [
+    "Warm-up intervals remain explicitly unlabelled",
+    "Small regime buckets must not receive Sharpe or ranking claims",
+    "Any regime-aware robot requires a new registered hypothesis and OOS plan"
+  ],
+  "safety": {
+    "performance_claim_allowed": false,
+    "paper_trading_allowed": false,
+    "live_orders_forbidden": true,
+    "real_money_used": false,
+    "secrets_used": false
+  }
+}
