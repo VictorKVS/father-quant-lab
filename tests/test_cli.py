@@ -8,6 +8,27 @@ from father_quant_lab.cli import main
 
 
 class CliTests(unittest.TestCase):
+    def test_cli_creates_causal_regime_report(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "regimes.json"
+            exit_code = main(
+                [
+                    "label-regimes",
+                    "--data",
+                    "data/samples/eurusd_daily_sample.csv",
+                    "--output",
+                    str(output),
+                    "--lookback-bars",
+                    "5",
+                ]
+            )
+            result = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(result["label_count"], 7)
+        self.assertEqual(result["causality"], "past_and_current_closed_bars_only")
+        self.assertFalse(result["regime_truth_claimed"])
+        self.assertTrue(result["live_orders_forbidden"])
+
     def test_cli_blocks_insufficient_plan_without_opening_trading(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "sufficiency.json"

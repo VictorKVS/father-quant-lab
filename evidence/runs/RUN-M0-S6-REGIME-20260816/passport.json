@@ -1,0 +1,61 @@
+{
+  "artifact_id": "RUN-M0-S6-REGIME-20260816",
+  "artifact_type": "causal_regime_diagnostic_run",
+  "purpose": "Prove a deterministic no-look-ahead regime-label contract on MODELLED bars",
+  "owner_role": "AGT-TIME-402",
+  "source_basis": ["docs/research-methodology.md", "docs/specifications/m0-s6-causal-regime-labels.md"],
+  "inputs": ["data/samples/eurusd_daily_sample.csv"],
+  "outputs": ["evidence/runs/RUN-M0-S6-REGIME-20260816/result.json"],
+  "relations": ["FQL-S6-REG-001", "ADR-0010", "FQL-REGIME-LABELS-001"],
+  "version": "1.0.0",
+  "sha256": "91e7bfe576579ebb46668f7c5a7983caf170f32e42ee6e46a37fae1a28bba8ef",
+  "sha256_basis": "evidence/runs/RUN-M0-S6-REGIME-20260816/result.json",
+  "status": "ACCEPTED_MECHANICAL_DIAGNOSTIC_ONLY",
+  "lifecycle": {
+    "idea": "Add regime diagnostics before comparing strategy failures by market state",
+    "source": "Research methodology requires failure analysis by regime",
+    "hypothesis": "Fixed rolling features can be labelled using no future bars",
+    "requirement": "FQL-S6-REG-001",
+    "design": "ADR-0010",
+    "code": "src/father_quant_lab/regimes.py",
+    "test": ["tests/test_regimes.py", "tests/test_cli.py"],
+    "run": "python -m father_quant_lab label-regimes",
+    "result": "7 labels: UP=3, RANGE=4; NORMAL=7",
+    "critique": "No DOWN or HIGH label occurs in the modelled sample and thresholds are uncalibrated",
+    "decision": "Accept only the causal interface; do not use labels for claims or strategy selection",
+    "lesson": "A regime label must expose when it became available and remain separate from market truth"
+  },
+  "provenance": {
+    "dataset_sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a",
+    "code_sha256": "8faffc0a431a986e34ae7ecf011684b9136a70eb5fcbeeee8d7dd892e4427a03",
+    "python": "3.12.13",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
+  },
+  "limitations": [
+    "MODELLED data only",
+    "thresholds are not calibrated for EUR/USD",
+    "RMS log return is per-bar and not annualized volatility",
+    "liquidity, spread, sessions and external events are absent"
+  ],
+  "verification": [
+    "61 unit tests passed",
+    "future extreme bar cannot change a prior label",
+    "synthetic tests cover UP, DOWN, RANGE, HIGH and NORMAL",
+    "warmup and invalid parameters tested",
+    "compileall and git diff --check passed"
+  ],
+  "decision": "ACCEPT_CAUSAL_CONTRACT_ONLY",
+  "lessons": [
+    "Do not optimize regime thresholds against PnL",
+    "Record available_to_system_at for every derived observation",
+    "Absence of a label class in one sample is negative coverage evidence, not permission to tune"
+  ],
+  "safety": {
+    "regime_truth_claimed": false,
+    "performance_claim_allowed": false,
+    "paper_trading_allowed": false,
+    "live_orders_forbidden": true,
+    "real_money_used": false,
+    "secrets_used": false
+  }
+}

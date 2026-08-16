@@ -178,6 +178,21 @@ python -m father_quant_lab evaluate-plan-sufficiency \
 Текущий sample имеет лишь 4 и поэтому блокируется. Порог является только
 механической проверкой, не статистическим доказательством.
 
+### Причинные режимные метки
+
+```bash
+python -m father_quant_lab label-regimes \
+  --data data/samples/eurusd_daily_sample.csv \
+  --output evidence/local/regimes.json \
+  --lookback-bars 5 \
+  --trend-threshold-bps 20 \
+  --high-volatility-threshold-bps 50
+```
+
+Метки строятся только по закрытым барам, доступным к моменту метки. Это
+диагностический MODELLED-прототип: он не утверждает истинный режим рынка, не
+оптимизирует пороги и не разрешает PAPER/LIVE.
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)

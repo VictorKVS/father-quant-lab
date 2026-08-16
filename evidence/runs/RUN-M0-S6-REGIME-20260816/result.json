@@ -1,0 +1,89 @@
+{
+  "artifact_id": "FQL-REGIME-LABELS-001",
+  "causality": "past_and_current_closed_bars_only",
+  "dataset": {
+    "bar_count": 12,
+    "classification": "MODELLED",
+    "instrument": "EUR/USD",
+    "sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a"
+  },
+  "label_count": 7,
+  "labels": [
+    {
+      "available_to_system_at": "2026-01-09T00:00:00+00:00",
+      "lookback_bars": 5,
+      "rms_log_return": 0.004176757753430552,
+      "timestamp": "2026-01-09T00:00:00+00:00",
+      "trend": "UP",
+      "trend_return": 0.002873563218390718,
+      "volatility": "NORMAL"
+    },
+    {
+      "available_to_system_at": "2026-01-12T00:00:00+00:00",
+      "lookback_bars": 5,
+      "rms_log_return": 0.00417475753352258,
+      "timestamp": "2026-01-12T00:00:00+00:00",
+      "trend": "UP",
+      "trend_return": 0.002862595419847125,
+      "volatility": "NORMAL"
+    },
+    {
+      "available_to_system_at": "2026-01-13T00:00:00+00:00",
+      "lookback_bars": 5,
+      "rms_log_return": 0.0041736336013967765,
+      "timestamp": "2026-01-13T00:00:00+00:00",
+      "trend": "UP",
+      "trend_return": 0.002870813397129357,
+      "volatility": "NORMAL"
+    },
+    {
+      "available_to_system_at": "2026-01-14T00:00:00+00:00",
+      "lookback_bars": 5,
+      "rms_log_return": 0.004446427793984048,
+      "timestamp": "2026-01-14T00:00:00+00:00",
+      "trend": "RANGE",
+      "trend_return": 0.0019249278152069227,
+      "volatility": "NORMAL"
+    },
+    {
+      "available_to_system_at": "2026-01-15T00:00:00+00:00",
+      "lookback_bars": 5,
+      "rms_log_return": 0.004341074118227055,
+      "timestamp": "2026-01-15T00:00:00+00:00",
+      "trend": "RANGE",
+      "trend_return": 0.0009596928982724684,
+      "volatility": "NORMAL"
+    },
+    {
+      "available_to_system_at": "2026-01-16T00:00:00+00:00",
+      "lookback_bars": 5,
+      "rms_log_return": 0.004565365677132497,
+      "timestamp": "2026-01-16T00:00:00+00:00",
+      "trend": "RANGE",
+      "trend_return": 0.0019102196752627254,
+      "volatility": "NORMAL"
+    },
+    {
+      "available_to_system_at": "2026-01-19T00:00:00+00:00",
+      "lookback_bars": 5,
+      "rms_log_return": 0.004564154529716432,
+      "timestamp": "2026-01-19T00:00:00+00:00",
+      "trend": "RANGE",
+      "trend_return": 0.0019029495718363432,
+      "volatility": "NORMAL"
+    }
+  ],
+  "live_orders_forbidden": true,
+  "mode": "research_diagnostics_only",
+  "paper_trading_allowed": false,
+  "parameters": {
+    "high_volatility_threshold_bps": 50.0,
+    "lookback_bars": 5,
+    "optimized": false,
+    "trend_threshold_bps": 20.0
+  },
+  "performance_claim_allowed": false,
+  "regime_truth_claimed": false,
+  "schema_version": "1.0.0",
+  "warmup_bars": 5
+}

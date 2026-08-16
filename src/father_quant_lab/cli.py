@@ -26,6 +26,7 @@ from .reference_data import (
     write_passport,
     write_reference_csv,
 )
+from .regimes import CausalRegimeClassifier, build_regime_report
 from .strategies import control_strategies, first_rule_league
 from .vendor_due_diligence import evaluate_dossiers, load_dossiers
 
@@ -84,6 +85,14 @@ def build_parser() -> argparse.ArgumentParser:
     sufficiency.add_argument("--plan-result", type=Path, required=True)
     sufficiency.add_argument("--criteria", type=Path, required=True)
     sufficiency.add_argument("--output", type=Path, required=True)
+    regimes = subparsers.add_parser(
+        "label-regimes", help="create causal diagnostic regime labels from closed bars"
+    )
+    regimes.add_argument("--data", type=Path, required=True)
+    regimes.add_argument("--output", type=Path, required=True)
+    regimes.add_argument("--lookback-bars", type=int, default=5)
+    regimes.add_argument("--trend-threshold-bps", type=float, default=20.0)
+    regimes.add_argument("--high-volatility-threshold-bps", type=float, default=50.0)
     return parser
 
 
@@ -235,6 +244,21 @@ def main(argv: list[str] | None = None) -> int:
             criteria_path=args.criteria,
         )
         destination = write_json(args.output, evaluation)
+        print(destination)
+        return 0
+    if args.command == "label-regimes":
+        bars = load_bars_csv(args.data)
+        classifier = CausalRegimeClassifier(
+            lookback_bars=args.lookback_bars,
+            trend_threshold_bps=args.trend_threshold_bps,
+            high_volatility_threshold_bps=args.high_volatility_threshold_bps,
+        )
+        report = build_regime_report(
+            bars,
+            classifier,
+            dataset_sha256=hashlib.sha256(args.data.read_bytes()).hexdigest(),
+        )
+        destination = write_json(args.output, report)
         print(destination)
         return 0
     raise AssertionError("unreachable command")

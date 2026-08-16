@@ -28,6 +28,7 @@
 | REPORT | JSON schema, стабильный порядок, запрет live orders |
 | CLI | запуск одной командой и повторяемый файл |
 | SUFF | отдельный warm-up каждого split, minimum scored bars и fail-closed criteria |
+| REGIME | warm-up, фиксированные пороги, timestamp доступности и неизменность от будущего бара |
 
 ## Definition of Done
 
