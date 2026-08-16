@@ -10,6 +10,7 @@ from pathlib import Path
 from .data import load_bars_csv
 from .engine import BacktestEngine, ExecutionCostModel, RiskPolicy
 from .evidence import build_run_passport, write_json
+from .provider_gate import evaluate_registry, load_registry
 from .reporting import league_report, write_report
 from .reference_data import (
     build_ecb_url,
@@ -42,6 +43,11 @@ def build_parser() -> argparse.ArgumentParser:
     reference.add_argument("--raw-output", type=Path, required=True)
     reference.add_argument("--output", type=Path, required=True)
     reference.add_argument("--passport", type=Path, required=True)
+    providers = subparsers.add_parser(
+        "evaluate-providers", help="apply the fail-closed FX data-provider gate"
+    )
+    providers.add_argument("--registry", type=Path, required=True)
+    providers.add_argument("--output", type=Path, required=True)
     return parser
 
 
@@ -109,6 +115,11 @@ def main(argv: list[str] | None = None) -> int:
         destination = write_passport(args.passport, passport)
         print(args.raw_output)
         print(canonical)
+        print(destination)
+        return 0
+    if args.command == "evaluate-providers":
+        registry = load_registry(args.registry)
+        destination = write_json(args.output, evaluate_registry(registry))
         print(destination)
         return 0
     raise AssertionError("unreachable command")

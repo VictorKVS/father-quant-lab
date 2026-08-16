@@ -162,6 +162,21 @@ python -m father_quant_lab fetch-ecb-reference \
 Это официальный дневной reference rate для макроконтекста и проверки provenance,
 а не исполнимая цена. Команда не запускает бэктест и сохраняет `backtest_eligible=false`.
 
+### Допуск поставщика торговых данных
+
+```bash
+python -m father_quant_lab evaluate-providers \
+  --registry configs/data-providers/fx_provider_registry.json \
+  --output reports/generated/fx-provider-gate.json
+```
+
+Gate закрыт по умолчанию: неизвестная лицензия, storage rights, timestamp semantics,
+revision policy или недостаточная история дают `BLOCKED`. Текущий результат — ни
+один поставщик ещё не допущен даже к ограниченному ingestion pilot.
+
+- [ТЗ FQL-S2-GATE-002](docs/specifications/m0-s2-provider-admission-gate.md)
+- [ADR-0005: fail-closed допуск данных](docs/adr/0005-fail-closed-data-admission.md)
+
 ## Safety boundary
 
 - No real-money trading.

@@ -1,0 +1,55 @@
+{
+  "artifact_id": "RUN-S2-GATE-002-20260816",
+  "artifact_type": "provider_admission_gate_run",
+  "purpose": "prevent unlicensed, temporally ambiguous, or historically insufficient FX data from entering M0",
+  "owner_role": "DATA_GOVERNANCE_REVIEWER",
+  "source_basis": [
+    "FQL-S2-GATE-002",
+    "ADR-0005",
+    "configs/data-providers/fx_provider_registry.json"
+  ],
+  "inputs": [
+    "configs/data-providers/fx_provider_registry.json"
+  ],
+  "outputs": [
+    "evidence/runs/RUN-S2-GATE-002-20260816/result.json"
+  ],
+  "relations": [
+    "FQL-S2-GATE-002",
+    "ADR-0005",
+    "MAT-DATA"
+  ],
+  "version": "1.0.0",
+  "sha256": "5e6f7c1c384406517bd70da6a0ed00c32a15aa4ae1774bf3d4b9879c38c943fc",
+  "status": "tested",
+  "limitations": [
+    "registry facts are point-in-time and require freshness review",
+    "public pages do not replace a signed data license",
+    "generic vendor history does not prove exact EUR/USD or DEM/USD series coverage",
+    "BLOCKED is not a negative quality verdict on the vendor"
+  ],
+  "verification": [
+    "tests/test_provider_gate.py",
+    "25 unit tests passed",
+    "git diff --check passed"
+  ],
+  "decision": "no provider admitted; procurement and sample validation remain forbidden until blockers close",
+  "lessons": [
+    "the complete 1992 scope materially changes provider selection",
+    "free access does not establish storage or redistribution rights",
+    "reference rates and mid prices cannot prove executable spread"
+  ],
+  "provenance": {
+    "registry_sha256": "e7e7a9ea6e5f3b8dde3bc2a56e3437e4eeebb5ce3b6a642634007012409a73a5",
+    "result_sha256": "5e6f7c1c384406517bd70da6a0ed00c32a15aa4ae1774bf3d4b9879c38c943fc",
+    "candidate_count": 6,
+    "eligible_count": 0,
+    "evaluated_as_of": "2026-08-16"
+  },
+  "safety": {
+    "overall_status": "BLOCKED",
+    "purchase_authorized": false,
+    "credential_use_authorized": false,
+    "live_orders_forbidden": true
+  }
+}

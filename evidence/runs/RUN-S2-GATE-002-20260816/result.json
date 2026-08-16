@@ -1,0 +1,80 @@
+{
+  "decision": "do not ingest a tradable dataset until at least one provider clears all gates",
+  "decisions": [
+    {
+      "blockers": [
+        "NOT_TRADABLE_PRICE_SEMANTICS",
+        "INSUFFICIENT_HISTORY",
+        "TIMESTAMP_SEMANTICS_NOT_VERIFIED",
+        "REVISION_POLICY_NOT_VERIFIED"
+      ],
+      "provider_id": "ECB_EXR",
+      "status": "BLOCKED"
+    },
+    {
+      "blockers": [
+        "LICENSE_NOT_VERIFIED",
+        "STORAGE_RIGHT_NOT_VERIFIED",
+        "INSUFFICIENT_HISTORY",
+        "PAIR_COVERAGE_NOT_VERIFIED",
+        "TIMESTAMP_SEMANTICS_NOT_VERIFIED",
+        "REVISION_POLICY_NOT_VERIFIED"
+      ],
+      "provider_id": "OANDA_V20",
+      "status": "BLOCKED"
+    },
+    {
+      "blockers": [
+        "LICENSE_NOT_VERIFIED",
+        "STORAGE_RIGHT_NOT_VERIFIED",
+        "HISTORY_START_NOT_VERIFIED",
+        "PAIR_COVERAGE_NOT_VERIFIED",
+        "TIMESTAMP_SEMANTICS_NOT_VERIFIED",
+        "REVISION_POLICY_NOT_VERIFIED"
+      ],
+      "provider_id": "DUKASCOPY_EXPORT",
+      "status": "BLOCKED"
+    },
+    {
+      "blockers": [
+        "LICENSE_NOT_VERIFIED",
+        "STORAGE_RIGHT_NOT_VERIFIED",
+        "INSUFFICIENT_HISTORY",
+        "PAIR_COVERAGE_NOT_VERIFIED",
+        "TIMESTAMP_SEMANTICS_NOT_VERIFIED",
+        "REVISION_POLICY_NOT_VERIFIED"
+      ],
+      "provider_id": "TICKDATA_FOREX",
+      "status": "BLOCKED"
+    },
+    {
+      "blockers": [
+        "LICENSE_NOT_VERIFIED",
+        "STORAGE_RIGHT_NOT_VERIFIED",
+        "PAIR_COVERAGE_NOT_VERIFIED",
+        "TIMESTAMP_SEMANTICS_NOT_VERIFIED",
+        "REVISION_POLICY_NOT_VERIFIED"
+      ],
+      "provider_id": "LSEG_FX_TICK_HISTORY",
+      "status": "BLOCKED"
+    },
+    {
+      "blockers": [
+        "LICENSE_NOT_VERIFIED",
+        "STORAGE_RIGHT_NOT_VERIFIED",
+        "INSUFFICIENT_HISTORY",
+        "PAIR_COVERAGE_NOT_VERIFIED",
+        "TIMESTAMP_SEMANTICS_NOT_VERIFIED",
+        "REVISION_POLICY_NOT_VERIFIED"
+      ],
+      "provider_id": "360T_HISTORICAL_SPOT",
+      "status": "BLOCKED"
+    }
+  ],
+  "eligible_providers": [],
+  "gate_id": "FQL-S2-GATE-002",
+  "live_orders_forbidden": true,
+  "overall_status": "BLOCKED",
+  "required_start": "1992-01-01",
+  "schema_version": "1.0.0"
+}

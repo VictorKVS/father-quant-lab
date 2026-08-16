@@ -4,7 +4,7 @@
 
 - S0: repository and governance skeleton
 - S1: maturity model, robot registry, polygon scenarios and dataset contract
-- S2: official daily FX data adapter and provenance model — ECB reference-rate slice implemented; real tradable OHLC provider remains open
+- S2: official daily FX data adapter and provenance model — ECB reference slice and fail-closed provider gate implemented; tradable provider remains blocked
 - S3: deterministic reference backtest engine
 - S4: first controlled league with control and rule-based robots
 - S5: transaction-cost, execution and independent risk models

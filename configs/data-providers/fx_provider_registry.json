@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "as_of": "2026-08-16",
+  "scope": "EUR/USD plus DEM/USD continuity from 1992; research storage and reproducibility",
+  "providers": [
+    {
+      "provider_id": "ECB_EXR",
+      "name": "ECB Data Portal EXR",
+      "access": "public API",
+      "cost_model": "free public statistics",
+      "license_status": "VERIFIED",
+      "storage_allowed": true,
+      "redistribution_allowed": true,
+      "history_start": "1999-01-04",
+      "coverage_status": "VERIFIED",
+      "price_semantics": ["REFERENCE_RATE"],
+      "timestamp_status": "PENDING_AVAILABILITY_TIME_MODEL",
+      "revision_status": "PENDING_REVISION_CAPTURE",
+      "evidence": [
+        "https://data.ecb.europa.eu/data/datasets/EXR/EXR.D.USD.EUR.SP00.A",
+        "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+      ],
+      "notes": "Accepted for macro context only; not an executable quote."
+    },
+    {
+      "provider_id": "OANDA_V20",
+      "name": "OANDA REST-v20",
+      "access": "account and token required",
+      "cost_model": "account terms; public fixed dataset price not established",
+      "license_status": "PENDING_CONTRACT_REVIEW",
+      "storage_allowed": null,
+      "redistribution_allowed": null,
+      "history_start": "2005-01-01",
+      "coverage_status": "VERIFIED_POST_2005_GENERAL_CLAIM",
+      "price_semantics": ["BID_ASK", "MID", "OHLC_BID", "OHLC_ASK"],
+      "timestamp_status": "PENDING_INDEPENDENT_VALIDATION",
+      "revision_status": "PENDING_VENDOR_CONFIRMATION",
+      "evidence": [
+        "https://developer.oanda.com/rest-live-v20/introduction/",
+        "https://developer.oanda.com/rest-live-v20/instrument-df/"
+      ],
+      "notes": "Useful post-2005 pilot candidate but cannot cover the 1992 start."
+    },
+    {
+      "provider_id": "DUKASCOPY_EXPORT",
+      "name": "Dukascopy Historical Data Export",
+      "access": "public export tool",
+      "cost_model": "advertised free export",
+      "license_status": "PENDING_TERMS_REVIEW",
+      "storage_allowed": null,
+      "redistribution_allowed": null,
+      "history_start": null,
+      "coverage_status": "PENDING_PAIR_BY_PAIR_PROBE",
+      "price_semantics": ["BID_ASK", "TICKS", "OHLC_BID"],
+      "timestamp_status": "PENDING_FORMAT_VALIDATION",
+      "revision_status": "PENDING_VENDOR_CONFIRMATION",
+      "evidence": [
+        "https://www.dukascopy.com/swiss/english/marketwatch/historical/",
+        "https://www.dukascopy.com/wiki/en/development/strategy-api/historical-data/"
+      ],
+      "notes": "Technical export exists from tick to monthly, but earliest date and reuse rights are not admitted."
+    },
+    {
+      "provider_id": "TICKDATA_FOREX",
+      "name": "Tick Data Historical Forex",
+      "access": "commercial delivery",
+      "cost_model": "quote required",
+      "license_status": "PENDING_CONTRACT_REVIEW",
+      "storage_allowed": null,
+      "redistribution_allowed": false,
+      "history_start": "2008-05-01",
+      "coverage_status": "VERIFIED_GENERAL_SPOT_FX",
+      "price_semantics": ["BID_ASK", "OHLC_BID"],
+      "timestamp_status": "PENDING_SAMPLE_VALIDATION",
+      "revision_status": "PENDING_VENDOR_CONFIRMATION",
+      "evidence": [
+        "https://www.tickdata.com/product/historical-forex-data/"
+      ],
+      "notes": "Research-grade semantics, but explicit coverage starts after the required historical boundary."
+    },
+    {
+      "provider_id": "LSEG_FX_TICK_HISTORY",
+      "name": "LSEG Forex and Tick History",
+      "access": "commercial contract",
+      "cost_model": "quote required",
+      "license_status": "PENDING_CONTRACT_REVIEW",
+      "storage_allowed": null,
+      "redistribution_allowed": false,
+      "history_start": "1975-01-01",
+      "coverage_status": "PENDING_EXACT_SERIES_AND_VENUE_CONFIRMATION",
+      "price_semantics": ["BID_ASK", "TRADES", "HISTORICAL_PRICING", "MARKET_DEPTH"],
+      "timestamp_status": "PENDING_SAMPLE_VALIDATION",
+      "revision_status": "PENDING_VENDOR_CONFIRMATION",
+      "evidence": [
+        "https://www.lseg.com/en/data-analytics/market-data/data-catalogue/forex-and-money-market",
+        "https://www.lseg.com/en/data-analytics/market-data/data-feeds/tick-history"
+      ],
+      "notes": "Only screened candidate claiming history before 1992; exact DEM/USD and EUR/USD content must be confirmed."
+    },
+    {
+      "provider_id": "360T_HISTORICAL_SPOT",
+      "name": "360T Historical Forex Spot Data Feed",
+      "access": "subscription or monthly package",
+      "cost_model": "commercial",
+      "license_status": "PENDING_CONTRACT_REVIEW",
+      "storage_allowed": null,
+      "redistribution_allowed": false,
+      "history_start": "2024-03-01",
+      "coverage_status": "VERIFIED_GENERAL_G10",
+      "price_semantics": ["BID_ASK", "NON_EXECUTABLE_DERIVED"],
+      "timestamp_status": "PENDING_SAMPLE_VALIDATION",
+      "revision_status": "PENDING_VENDOR_CONFIRMATION",
+      "evidence": [
+        "https://www.360t.com/products/market-data/historical-data-feed/"
+      ],
+      "notes": "Useful future cross-check, not a historical foundation."
+    }
+  ]
+}
