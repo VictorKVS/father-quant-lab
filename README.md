@@ -177,6 +177,20 @@ revision policy или недостаточная история дают `BLOCK
 - [ТЗ FQL-S2-GATE-002](docs/specifications/m0-s2-provider-admission-gate.md)
 - [ADR-0005: fail-closed допуск данных](docs/adr/0005-fail-closed-data-admission.md)
 
+### Анкета поставщика до покупки
+
+```bash
+python -m father_quant_lab evaluate-vendor-dossiers \
+  --dossiers configs/data-providers/vendor_dossiers.json \
+  --output reports/generated/vendor-dossier-gate.json
+```
+
+Результат разрешает максимум локальную проверку малого неизменяемого образца. Он не
+разрешает покупку, credentials, допуск данных в backtest/paper или торговлю.
+
+- [ТЗ FQL-S2-GATE-003](docs/specifications/m0-s2-vendor-due-diligence.md)
+- [ADR-0006: sample до покупки](docs/adr/0006-sample-before-purchase.md)
+
 ## Safety boundary
 
 - No real-money trading.
@@ -186,4 +200,4 @@ revision policy или недостаточная история дают `BLOCK
 
 ## Status
 
-`M0 / S0 — repository skeleton created`
+`M0 / S2 — data provenance gates implemented; tradable dataset remains blocked`

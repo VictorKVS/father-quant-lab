@@ -21,6 +21,7 @@ from .reference_data import (
     write_reference_csv,
 )
 from .strategies import control_strategies
+from .vendor_due_diligence import evaluate_dossiers, load_dossiers
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -48,6 +49,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     providers.add_argument("--registry", type=Path, required=True)
     providers.add_argument("--output", type=Path, required=True)
+    dossiers = subparsers.add_parser(
+        "evaluate-vendor-dossiers",
+        help="apply the fail-closed questionnaire and offline-sample gate",
+    )
+    dossiers.add_argument("--dossiers", type=Path, required=True)
+    dossiers.add_argument("--output", type=Path, required=True)
     return parser
 
 
@@ -120,6 +127,11 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "evaluate-providers":
         registry = load_registry(args.registry)
         destination = write_json(args.output, evaluate_registry(registry))
+        print(destination)
+        return 0
+    if args.command == "evaluate-vendor-dossiers":
+        payload = load_dossiers(args.dossiers)
+        destination = write_json(args.output, evaluate_dossiers(payload))
         print(destination)
         return 0
     raise AssertionError("unreachable command")

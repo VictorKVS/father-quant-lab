@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "as_of": "2026-08-16",
+  "scope": "Versioned pre-purchase questionnaire for a bounded EUR/USD and DEM/USD offline sample",
+  "dossiers": [
+    {
+      "provider_id": "LSEG_FX_TICK_HISTORY",
+      "public_evidence": [
+        "https://www.lseg.com/en/data-analytics/market-data/data-catalogue/forex-and-money-market",
+        "https://www.lseg.com/en/data-analytics/market-data/data-feeds/tick-history"
+      ],
+      "answers": {},
+      "sample": {"status": "NOT_REQUESTED"},
+      "notes": "First questionnaire target because generic pricing history predates 1992; exact series remain unverified."
+    },
+    {
+      "provider_id": "OANDA_V20",
+      "public_evidence": [
+        "https://developer.oanda.com/rest-live-v20/introduction/",
+        "https://developer.oanda.com/rest-live-v20/instrument-df/"
+      ],
+      "answers": {},
+      "sample": {"status": "NOT_REQUESTED"},
+      "notes": "Candidate for a formally limited post-2005 scope, not the complete 1992 scope."
+    },
+    {
+      "provider_id": "DUKASCOPY_EXPORT",
+      "public_evidence": [
+        "https://www.dukascopy.com/swiss/english/marketwatch/historical/",
+        "https://www.dukascopy.com/wiki/en/development/strategy-api/historical-data/"
+      ],
+      "answers": {},
+      "sample": {"status": "NOT_REQUESTED"},
+      "notes": "Export existence is public; exact earliest date, format semantics and research rights remain unverified."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "credential_use_authorized": false,
+  "decision": "send the versioned questionnaire; do not buy, authenticate, or ingest data",
+  "decisions": [
+    {
+      "blockers": ["VENDOR_ANSWERS_INCOMPLETE", "IMMUTABLE_SAMPLE_NOT_VERIFIED"],
+      "credential_use_authorized": false,
+      "pending_questions": ["legal_entity", "dataset_ids", "pair_coverage", "history_and_granularity", "price_semantics", "timestamp_semantics", "venue_and_composite_method", "revision_and_versioning", "storage_and_reproducibility_rights", "sample_delivery", "pricing_and_fees", "api_security_and_limits", "termination_and_deletion", "support_and_sla", "known_gaps_and_outages"],
+      "provider_id": "LSEG_FX_TICK_HISTORY",
+      "purchase_authorized": false,
+      "status": "READY_FOR_VENDOR_QUERY",
+      "trading_data_admitted": false
+    },
+    {
+      "blockers": ["VENDOR_ANSWERS_INCOMPLETE", "IMMUTABLE_SAMPLE_NOT_VERIFIED"],
+      "credential_use_authorized": false,
+      "pending_questions": ["legal_entity", "dataset_ids", "pair_coverage", "history_and_granularity", "price_semantics", "timestamp_semantics", "venue_and_composite_method", "revision_and_versioning", "storage_and_reproducibility_rights", "sample_delivery", "pricing_and_fees", "api_security_and_limits", "termination_and_deletion", "support_and_sla", "known_gaps_and_outages"],
+      "provider_id": "OANDA_V20",
+      "purchase_authorized": false,
+      "status": "READY_FOR_VENDOR_QUERY",
+      "trading_data_admitted": false
+    },
+    {
+      "blockers": ["VENDOR_ANSWERS_INCOMPLETE", "IMMUTABLE_SAMPLE_NOT_VERIFIED"],
+      "credential_use_authorized": false,
+      "pending_questions": ["legal_entity", "dataset_ids", "pair_coverage", "history_and_granularity", "price_semantics", "timestamp_semantics", "venue_and_composite_method", "revision_and_versioning", "storage_and_reproducibility_rights", "sample_delivery", "pricing_and_fees", "api_security_and_limits", "termination_and_deletion", "support_and_sla", "known_gaps_and_outages"],
+      "provider_id": "DUKASCOPY_EXPORT",
+      "purchase_authorized": false,
+      "status": "READY_FOR_VENDOR_QUERY",
+      "trading_data_admitted": false
+    }
+  ],
+  "gate_id": "FQL-S2-GATE-003",
+  "live_orders_forbidden": true,
+  "overall_status": "BLOCKED",
+  "purchase_authorized": false,
+  "questionnaire_sha256": "107acbb06a899711242f7f3103ec33317bc05ec17258f70d334dcea8ebefe698",
+  "sample_ready_providers": [],
+  "schema_version": "1.0.0"
+}

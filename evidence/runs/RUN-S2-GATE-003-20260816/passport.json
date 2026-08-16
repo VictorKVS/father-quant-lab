@@ -1,0 +1,71 @@
+{
+  "artifact_id": "RUN-S2-GATE-003-20260816",
+  "artifact_type": "vendor_due_diligence_gate_run",
+  "purpose": "prepare a versioned vendor questionnaire and prevent purchase or ingestion before a verified bounded sample",
+  "owner_role": "DATA_GOVERNANCE_REVIEWER",
+  "source_basis": [
+    "FQL-S2-GATE-003",
+    "ADR-0005",
+    "ADR-0006",
+    "configs/data-providers/fx_provider_registry.json"
+  ],
+  "inputs": ["configs/data-providers/vendor_dossiers.json"],
+  "outputs": ["evidence/runs/RUN-S2-GATE-003-20260816/result.json"],
+  "relations": [
+    "IDEA:FQL-S2-GATE-003",
+    "SOURCE:official vendor HTTPS pages listed in each dossier",
+    "HYPOTHESIS:versioned questions and immutable sample metadata fail closed",
+    "REQUIREMENT:docs/specifications/m0-s2-vendor-due-diligence.md",
+    "DESIGN:ADR-0006",
+    "CODE:src/father_quant_lab/vendor_due_diligence.py",
+    "TEST:tests/test_vendor_due_diligence.py",
+    "RUN:RUN-S2-GATE-003-20260816",
+    "RESULT:evidence/runs/RUN-S2-GATE-003-20260816/result.json",
+    "CRITIQUE:synthetic pass does not validate a real vendor",
+    "DECISION:no sample, purchase, credentials, ingestion or trading admission",
+    "LESSON:separate query readiness from sample eligibility and data admission"
+  ],
+  "version": "1.0.0",
+  "sha256": "62f7d40a6d76e97f4324f10d99f81111418008f8b56c86775d0813385e301a16",
+  "status": "tested",
+  "limitations": [
+    "no vendor was contacted and no reply was received",
+    "no real sample, price quote, contract or credential was used",
+    "public facts are point-in-time and do not prove exact series coverage",
+    "a synthetic eligible dossier proves code reachability, not vendor quality",
+    "sample review would not by itself admit data to a backtest"
+  ],
+  "verification": [
+    "34 unit tests passed with PYTHONPATH=src",
+    "python compileall passed",
+    "git diff --check passed",
+    "negative environment result: 9 import errors without package install or PYTHONPATH"
+  ],
+  "decision": "questionnaires are ready for human-controlled vendor contact; all sample and trading-data gates remain blocked",
+  "lessons": [
+    "query readiness is materially weaker than sample eligibility",
+    "every verified answer needs a retrievable HTTPS evidence reference",
+    "sample SHA-256 and schema are necessary but not sufficient for data admission",
+    "src-layout verification must install the package or set PYTHONPATH explicitly"
+  ],
+  "provenance": {
+    "dossiers_sha256": "9eb2de6be111be8de4bf161c4f17b624a94353eda5a1ea7e7ab7287b823f9c18",
+    "result_sha256": "62f7d40a6d76e97f4324f10d99f81111418008f8b56c86775d0813385e301a16",
+    "code_sha256": "ea35c041e3218b09b949401d88dc826dc70e7103f7bfbbbeb01ff3a8abf6eb63",
+    "specification_sha256": "a7169562c9bd148c275f35e2453e32269001a67a94a20ceadc62db468c5cf1ea",
+    "adr_sha256": "4e58d32912eaa5f17bf8697ad865211bc3d4db51b227c833ace531dd513cdebd",
+    "evaluated_as_of": "2026-08-16",
+    "environment": "Python 3.12.13; Linux 6.18.35 x86_64",
+    "candidate_count": 3,
+    "query_ready_count": 3,
+    "sample_ready_count": 0,
+    "pending_question_count_per_candidate": 15
+  },
+  "safety": {
+    "overall_status": "BLOCKED",
+    "purchase_authorized": false,
+    "credential_use_authorized": false,
+    "trading_data_admitted": false,
+    "live_orders_forbidden": true
+  }
+}
