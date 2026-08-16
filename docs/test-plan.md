@@ -27,6 +27,7 @@
 | CTRL | NO-TRADE, RANDOM reproducibility, BUY-HOLD и PERIODIC |
 | REPORT | JSON schema, стабильный порядок, запрет live orders |
 | CLI | запуск одной командой и повторяемый файл |
+| SUFF | отдельный warm-up каждого split, minimum scored bars и fail-closed criteria |
 
 ## Definition of Done
 

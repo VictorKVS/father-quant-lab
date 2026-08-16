@@ -1,0 +1,73 @@
+{
+  "artifact_id": "RUN-M0-S4-SUFF-20260816",
+  "artifact_type": "experiment_sufficiency_gate_run",
+  "purpose": "Prevent evaluation on splits too short for independent strategy warmup",
+  "owner_role": "AGT-CRITIC-405",
+  "source_basis": [
+    "evidence/runs/RUN-M0-S4-PLAN-20260816/acceptance.md",
+    "docs/specifications/m0-s4-evidence-sufficiency-gate.md"
+  ],
+  "inputs": [
+    "evidence/runs/RUN-M0-S4-PLAN-20260816/result.json",
+    "configs/evaluation/m0-mechanical-sufficiency.json"
+  ],
+  "outputs": ["evidence/runs/RUN-M0-S4-SUFF-20260816/result.json"],
+  "relations": [
+    "FQL-S4-SUFF-003",
+    "FQL-S4-GATE-005",
+    "ADR-0009",
+    "PLAN-M0-RULE-101-MODELLED-001"
+  ],
+  "version": "1.0.0",
+  "sha256": "c98c36c9bb9706ee350c46a5420a435ecf39e5839e25012937948f13aa8a9207",
+  "sha256_basis": "evidence/runs/RUN-M0-S4-SUFF-20260816/result.json",
+  "status": "ACCEPTED_BLOCKING_RESULT",
+  "lifecycle": {
+    "idea": "Audit whether structurally valid splits can actually warm up the registered strategy",
+    "source": "Critique of RUN-M0-S4-PLAN-20260816 and research-methodology limits",
+    "hypothesis": "Each four-bar split is insufficient for independent SMA(5) warmup",
+    "requirement": "FQL-S4-SUFF-003",
+    "design": "ADR-0009",
+    "code": "src/father_quant_lab/experiment_sufficiency.py",
+    "test": ["tests/test_experiment_sufficiency.py", "tests/test_cli.py"],
+    "run": "python -m father_quant_lab evaluate-plan-sufficiency",
+    "result": "BLOCKED_INSUFFICIENT_BARS; deficit 21 bars in every split",
+    "critique": "The 20 scored-bar threshold is mechanical, not statistical",
+    "decision": "Retain previous immutable evidence but block strategy evaluation",
+    "lesson": "Plan structure, mechanical sufficiency and statistical sufficiency require separate gates"
+  },
+  "provenance": {
+    "plan_result_sha256": "9fda76de568c9e4f37fa7cb97b4bd582e0ddec38dbed02ca34c822eea32e3054",
+    "criteria_sha256": "c113b3200915a562c4f3a89fc440bdfc4414f0d6d49d1e6633924e1f0e13ecca",
+    "code_sha256": "d0bfe0e61bb2a43c02702ab070e642f24ca9daab93078387dd9223f2360a8fe8",
+    "python": "3.12.13",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
+  },
+  "limitations": [
+    "Threshold 20 is not statistical power analysis",
+    "Only window-based lookback parameters are recognized",
+    "No regime, trade-count or autocorrelation adequacy is assessed",
+    "MODELLED input remains non-tradable"
+  ],
+  "verification": [
+    "54 unit tests passed",
+    "positive mechanical path remains non-statistical",
+    "missing window, draft criteria and boolean bar count fail closed",
+    "compileall passed",
+    "git diff --check passed"
+  ],
+  "decision": "BLOCK_EVALUATION_UNTIL_LONGER_ADMITTED_DATA_AND_NEW_PLAN",
+  "lessons": [
+    "A green structural gate can still feed a blocked sufficiency gate",
+    "Warmup must be explicit and independent per split",
+    "Negative evidence improves the pipeline without increasing maturity"
+  ],
+  "safety": {
+    "statistical_sufficiency_proved": false,
+    "performance_claim_allowed": false,
+    "paper_trading_allowed": false,
+    "live_orders_forbidden": true,
+    "real_money_used": false,
+    "secrets_used": false
+  }
+}

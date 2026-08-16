@@ -164,6 +164,20 @@ Gate сверяет SHA-256, параметры, порядок train/validation
 PAPER, LIVE или заявления о доходности. См. [FQL-S4-PLAN-002](docs/specifications/m0-s4-sealed-experiment-plan.md)
 и [ADR-0008](docs/adr/0008-sealed-chronological-experiment-plan.md).
 
+Отдельный gate не позволяет принять структурно правильный, но слишком короткий
+план:
+
+```bash
+python -m father_quant_lab evaluate-plan-sufficiency \
+  --plan-result evidence/runs/RUN-M0-S4-PLAN-20260816/result.json \
+  --criteria configs/evaluation/m0-mechanical-sufficiency.json \
+  --output evidence/local/sufficiency.json
+```
+
+Для SMA(3/5) требуется 5 warm-up и минимум 20 оцениваемых баров на каждый split.
+Текущий sample имеет лишь 4 и поэтому блокируется. Порог является только
+механической проверкой, не статистическим доказательством.
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)

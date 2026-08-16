@@ -8,6 +8,26 @@ from father_quant_lab.cli import main
 
 
 class CliTests(unittest.TestCase):
+    def test_cli_blocks_insufficient_plan_without_opening_trading(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "sufficiency.json"
+            exit_code = main(
+                [
+                    "evaluate-plan-sufficiency",
+                    "--plan-result",
+                    "evidence/runs/RUN-M0-S4-PLAN-20260816/result.json",
+                    "--criteria",
+                    "configs/evaluation/m0-mechanical-sufficiency.json",
+                    "--output",
+                    str(output),
+                ]
+            )
+            result = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(result["status"], "BLOCKED_INSUFFICIENT_BARS")
+        self.assertFalse(result["paper_trading_allowed"])
+        self.assertTrue(result["live_orders_forbidden"])
+
     def test_cli_validates_sealed_experiment_plan(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "plan-result.json"

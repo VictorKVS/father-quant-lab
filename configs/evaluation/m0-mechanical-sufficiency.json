@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "criteria_id": "CRIT-M0-S4-MECH-001",
+  "status": "PRE_REGISTERED",
+  "basis": "MECHANICAL_SMOKE_ONLY",
+  "minimum_scored_bars_per_split": 20,
+  "independent_warmup_per_split": true,
+  "statistical_sufficiency_claimed": false,
+  "live_orders_forbidden": true
+}

@@ -1,0 +1,49 @@
+{
+  "basis": "MECHANICAL_SMOKE_ONLY",
+  "criteria_id": "CRIT-M0-S4-MECH-001",
+  "decision": "do not evaluate strategy; obtain longer admitted data and register a new plan",
+  "decisions": [
+    {
+      "actual_bars": 4,
+      "deficit_bars": 21,
+      "minimum_scored_bars": 20,
+      "name": "TRAIN",
+      "required_total_bars": 25,
+      "status": "BLOCKED",
+      "warmup_bars": 5
+    },
+    {
+      "actual_bars": 4,
+      "deficit_bars": 21,
+      "minimum_scored_bars": 20,
+      "name": "VALIDATION",
+      "required_total_bars": 25,
+      "status": "BLOCKED",
+      "warmup_bars": 5
+    },
+    {
+      "actual_bars": 4,
+      "deficit_bars": 21,
+      "minimum_scored_bars": 20,
+      "name": "OUT_OF_SAMPLE",
+      "required_total_bars": 25,
+      "status": "BLOCKED",
+      "warmup_bars": 5
+    }
+  ],
+  "gate_id": "FQL-S4-GATE-005",
+  "live_orders_forbidden": true,
+  "paper_trading_allowed": false,
+  "performance_claim_allowed": false,
+  "plan_id": "PLAN-M0-RULE-101-MODELLED-001",
+  "provenance": {
+    "criteria_path": "configs/evaluation/m0-mechanical-sufficiency.json",
+    "criteria_sha256": "c113b3200915a562c4f3a89fc440bdfc4414f0d6d49d1e6633924e1f0e13ecca",
+    "plan_result_path": "evidence/runs/RUN-M0-S4-PLAN-20260816/result.json",
+    "plan_result_sha256": "9fda76de568c9e4f37fa7cb97b4bd582e0ddec38dbed02ca34c822eea32e3054"
+  },
+  "schema_version": "1.0.0",
+  "statistical_sufficiency_proved": false,
+  "status": "BLOCKED_INSUFFICIENT_BARS",
+  "strategy_lookback_bars": 5
+}

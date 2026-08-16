@@ -10,6 +10,11 @@ from pathlib import Path
 from .data import load_bars_csv
 from .engine import BacktestEngine, ExecutionCostModel, RiskPolicy
 from .experiment_plan import evaluate_experiment_plan, load_experiment_plan
+from .experiment_sufficiency import (
+    evaluate_sufficiency,
+    load_plan_result,
+    load_sufficiency_criteria,
+)
 from .evidence import build_rule_baseline_passport, build_run_passport, write_json
 from .provider_gate import evaluate_registry, load_registry
 from .reporting import league_report, write_report
@@ -72,6 +77,13 @@ def build_parser() -> argparse.ArgumentParser:
     plan.add_argument("--plan", type=Path, required=True)
     plan.add_argument("--data", type=Path, required=True)
     plan.add_argument("--output", type=Path, required=True)
+    sufficiency = subparsers.add_parser(
+        "evaluate-plan-sufficiency",
+        help="check whether validated splits can warm up and score a strategy",
+    )
+    sufficiency.add_argument("--plan-result", type=Path, required=True)
+    sufficiency.add_argument("--criteria", type=Path, required=True)
+    sufficiency.add_argument("--output", type=Path, required=True)
     return parser
 
 
@@ -211,6 +223,18 @@ def main(argv: list[str] | None = None) -> int:
         bars = load_bars_csv(args.data)
         result = evaluate_experiment_plan(plan, dataset_path=args.data, bars=bars)
         destination = write_json(args.output, result)
+        print(destination)
+        return 0
+    if args.command == "evaluate-plan-sufficiency":
+        result = load_plan_result(args.plan_result)
+        criteria = load_sufficiency_criteria(args.criteria)
+        evaluation = evaluate_sufficiency(
+            result,
+            criteria,
+            result_path=args.plan_result,
+            criteria_path=args.criteria,
+        )
+        destination = write_json(args.output, evaluation)
         print(destination)
         return 0
     raise AssertionError("unreachable command")
