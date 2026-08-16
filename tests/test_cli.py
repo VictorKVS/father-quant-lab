@@ -43,6 +43,41 @@ class CliTests(unittest.TestCase):
         self.assertTrue(passport["safety"]["live_orders_forbidden"])
         self.assertIn("future profitability", passport["interpretation"]["not_proved"])
 
+    def test_rule_baseline_compares_candidate_to_all_controls(self) -> None:
+        fixture = Path("data/samples/eurusd_daily_sample.csv")
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "rule.json"
+            exit_code = main(
+                [
+                    "run-rule-baseline",
+                    "--data",
+                    str(fixture),
+                    "--output",
+                    str(output),
+                    "--seed",
+                    "17",
+                    "--short-window",
+                    "3",
+                    "--long-window",
+                    "5",
+                ]
+            )
+            report = json.loads(output.read_text(encoding="utf-8"))
+            passport = json.loads(
+                output.with_name("rule.passport.json").read_text(encoding="utf-8")
+            )
+
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(len(report["results"]), 5)
+        self.assertEqual(
+            {result["strategy_id"] for result in report["results"]},
+            {"BOT-CTRL-000", "BOT-CTRL-001", "BOT-CTRL-002", "BOT-CTRL-003", "BOT-RULE-101"},
+        )
+        self.assertEqual(report["run_config"]["rule"]["optimization_performed"], False)
+        self.assertEqual(passport["parameters"], {"short_window": 3, "long_window": 5})
+        self.assertFalse(passport["safety"]["performance_claim_allowed"])
+        self.assertIn("out-of-sample performance", passport["interpretation"]["not_proved"])
+
 
 if __name__ == "__main__":
     unittest.main()

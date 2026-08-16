@@ -104,6 +104,101 @@ def build_run_passport(
     }
 
 
+def build_rule_baseline_passport(
+    *,
+    run_id: str,
+    report_path: str | Path,
+    dataset_path: str | Path,
+    seed: int,
+    short_window: int,
+    long_window: int,
+    results: Iterable[BacktestResult],
+) -> dict[str, object]:
+    """Evidence passport for the first control-plus-rule league."""
+    report = Path(report_path)
+    dataset = Path(dataset_path)
+    ordered = sorted(results, key=lambda result: result.strategy_id)
+    return {
+        "schema_version": "1.0.0",
+        "passport_type": "experiment_run",
+        "run_id": run_id,
+        "lifecycle": {
+            "idea": "Add the first book-derived moving-average robot to the mandatory controls.",
+            "source": [
+                "README.md#основной-маршрут-python",
+                "docs/specifications/m0-s4-moving-average-baseline.md",
+            ],
+            "hypothesis": "A long/flat moving-average rule can run causally and deterministically beside all controls.",
+            "requirements": ["FQL-S4-MA-001", "FQL-FR-003", "FQL-FR-004", "FQL-FR-005", "FQL-FR-008"],
+            "design_decisions": ["ADR-0001", "ADR-0002", "ADR-0007"],
+            "implementation": [
+                "src/father_quant_lab/strategies.py",
+                "src/father_quant_lab/cli.py",
+            ],
+            "verification": [
+                "tests/test_strategies.py",
+                "tests/test_cli.py",
+                "tests/test_engine.py",
+            ],
+            "critique": "A short modelled sample can prove mechanics but cannot evaluate an investment hypothesis.",
+            "decision": "accepted_as_mechanical_rule_baseline_only",
+            "next_gate": "Run pre-registered windows on licensed historical data with sealed out-of-sample periods.",
+            "lesson": "Strategy mechanics and profitability evidence are separate gates.",
+        },
+        "provenance": {
+            "dataset_path": dataset.as_posix(),
+            "dataset_sha256": sha256_file(dataset),
+            "dataset_classification": "MODELLED",
+            "report_path": report.as_posix(),
+            "report_sha256": sha256_file(report),
+            "seed": seed,
+        },
+        "parameters": {"short_window": short_window, "long_window": long_window},
+        "environment": {
+            "python": platform.python_version(),
+            "implementation": platform.python_implementation(),
+            "platform": platform.platform(),
+            "executable": Path(sys.executable).name,
+        },
+        "safety": {
+            "mode": "backtest_only",
+            "live_orders_forbidden": True,
+            "real_money_used": False,
+            "performance_claim_allowed": False,
+            "parameter_optimization_performed": False,
+        },
+        "result_summary": [
+            {
+                "strategy_id": result.strategy_id,
+                "final_equity": result.metrics.final_equity,
+                "total_return": result.metrics.total_return,
+                "max_drawdown": result.metrics.max_drawdown,
+                "trade_count": result.metrics.trade_count,
+                "kill_switch_triggered": result.metrics.kill_switch_triggered,
+            }
+            for result in ordered
+        ],
+        "interpretation": {
+            "proved": [
+                "BOT-RULE-101 waits for a complete long window",
+                "signals use available closes and execute through the reference engine",
+                "the rule is compared with all mandatory controls",
+                "the report and hashes are reproducible",
+            ],
+            "not_proved": [
+                "profitability on historical market data",
+                "robustness across parameter windows or regimes",
+                "out-of-sample performance",
+                "paper or live readiness",
+            ],
+            "negative_results": [
+                "ambiguous or non-positive windows are rejected",
+                "the sample is explicitly barred from performance claims",
+            ],
+        },
+    }
+
+
 def write_json(path: str | Path, payload: dict[str, object]) -> Path:
     destination = Path(path)
     destination.parent.mkdir(parents=True, exist_ok=True)

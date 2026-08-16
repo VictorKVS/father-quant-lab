@@ -1,0 +1,123 @@
+{
+  "environment": {
+    "executable": "python",
+    "implementation": "CPython",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "python": "3.12.13"
+  },
+  "interpretation": {
+    "negative_results": [
+      "ambiguous or non-positive windows are rejected",
+      "the sample is explicitly barred from performance claims"
+    ],
+    "not_proved": [
+      "profitability on historical market data",
+      "robustness across parameter windows or regimes",
+      "out-of-sample performance",
+      "paper or live readiness"
+    ],
+    "proved": [
+      "BOT-RULE-101 waits for a complete long window",
+      "signals use available closes and execute through the reference engine",
+      "the rule is compared with all mandatory controls",
+      "the report and hashes are reproducible"
+    ]
+  },
+  "lifecycle": {
+    "critique": "A short modelled sample can prove mechanics but cannot evaluate an investment hypothesis.",
+    "decision": "accepted_as_mechanical_rule_baseline_only",
+    "design_decisions": [
+      "ADR-0001",
+      "ADR-0002",
+      "ADR-0007"
+    ],
+    "hypothesis": "A long/flat moving-average rule can run causally and deterministically beside all controls.",
+    "idea": "Add the first book-derived moving-average robot to the mandatory controls.",
+    "implementation": [
+      "src/father_quant_lab/strategies.py",
+      "src/father_quant_lab/cli.py"
+    ],
+    "lesson": "Strategy mechanics and profitability evidence are separate gates.",
+    "next_gate": "Run pre-registered windows on licensed historical data with sealed out-of-sample periods.",
+    "requirements": [
+      "FQL-S4-MA-001",
+      "FQL-FR-003",
+      "FQL-FR-004",
+      "FQL-FR-005",
+      "FQL-FR-008"
+    ],
+    "source": [
+      "README.md#основной-маршрут-python",
+      "docs/specifications/m0-s4-moving-average-baseline.md"
+    ],
+    "verification": [
+      "tests/test_strategies.py",
+      "tests/test_cli.py",
+      "tests/test_engine.py"
+    ]
+  },
+  "parameters": {
+    "long_window": 5,
+    "short_window": 3
+  },
+  "passport_type": "experiment_run",
+  "provenance": {
+    "dataset_classification": "MODELLED",
+    "dataset_path": "data/samples/eurusd_daily_sample.csv",
+    "dataset_sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a",
+    "report_path": "evidence/runs/RUN-M0-RULE-101-20260816/report.json",
+    "report_sha256": "793c0397c0a2fda8bf5551dfe40514658cb496db2d6eafcd04c0688138531bec",
+    "seed": 20260816
+  },
+  "result_summary": [
+    {
+      "final_equity": 10000.0,
+      "kill_switch_triggered": false,
+      "max_drawdown": 0.0,
+      "strategy_id": "BOT-CTRL-000",
+      "total_return": 0.0,
+      "trade_count": 0
+    },
+    {
+      "final_equity": 10098.265176512306,
+      "kill_switch_triggered": false,
+      "max_drawdown": 0.00858778625954204,
+      "strategy_id": "BOT-CTRL-001",
+      "total_return": 0.00982651765123066,
+      "trade_count": 6
+    },
+    {
+      "final_equity": 10083.786497349298,
+      "kill_switch_triggered": false,
+      "max_drawdown": 0.009514747859181605,
+      "strategy_id": "BOT-CTRL-002",
+      "total_return": 0.008378649734929855,
+      "trade_count": 2
+    },
+    {
+      "final_equity": 10041.837158834871,
+      "kill_switch_triggered": false,
+      "max_drawdown": 0.004766444659251801,
+      "strategy_id": "BOT-CTRL-003",
+      "total_return": 0.0041837158834869825,
+      "trade_count": 4
+    },
+    {
+      "final_equity": 9921.500571220708,
+      "kill_switch_triggered": false,
+      "max_drawdown": 0.00963359380865747,
+      "strategy_id": "BOT-RULE-101",
+      "total_return": -0.007849942877929283,
+      "trade_count": 2
+    }
+  ],
+  "run_id": "RUN-M0-RULE-101-S3-L5-SEED-20260816",
+  "safety": {
+    "live_orders_forbidden": true,
+    "mode": "backtest_only",
+    "parameter_optimization_performed": false,
+    "performance_claim_allowed": false,
+    "real_money_used": false
+  },
+  "schema_version": "1.0.0"
+}

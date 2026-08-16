@@ -1,0 +1,40 @@
+artifact_id: BOT-RULE-101
+artifact_type: trading_robot
+purpose: "Детерминированный long/flat baseline пересечения скользящих средних"
+owner_role: AGT-COUNCIL-408
+source_basis:
+  - README.md#основной-маршрут-python
+  - docs/specifications/m0-s4-moving-average-baseline.md
+inputs:
+  - "Последовательность завершённых OHLCV-баров"
+  - "short_window и long_window, зарегистрированные до запуска"
+outputs:
+  - "Целевое состояние позиции: long или flat"
+relations:
+  - FQL-S4-MA-001
+  - ADR-0001
+  - ADR-0002
+  - ADR-0007
+  - RUN-M0-RULE-101-20260816
+version: 0.1.0
+sha256: 13d04a552b9b365902f88e2a16bce746eda5bceff793d483f6b6ef4a9ff41480
+sha256_basis: src/father_quant_lab/strategies.py
+status: MECHANICS_TESTED_MODELLED_DATA_ONLY
+allowed_modes:
+  - REPLAY
+  - BACKTEST
+forbidden_modes:
+  - PAPER
+  - LIVE
+limitations:
+  - "Доходность и устойчивость не доказаны"
+  - "Исторические лицензированные данные и out-of-sample ещё не использованы"
+  - "Short, leverage и автоматическая оптимизация запрещены"
+verification:
+  - tests/test_strategies.py
+  - tests/test_cli.py
+  - evidence/runs/RUN-M0-RULE-101-20260816/report.json
+decision: "ACCEPT_AS_MECHANICAL_BASELINE_ONLY"
+lessons:
+  - "Корректная механика стратегии не является доказательством торгового преимущества"
+  - "Отрицательный результат нельзя исправлять подбором окон на той же выборке"

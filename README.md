@@ -136,6 +136,20 @@ python -m father_quant_lab run-controls \
 доказательств `m0-controls.passport.json`. Паспорт связывает исходную идею, ТЗ,
 ADR, код, тесты, среду, хеши данных и отчёта, метрики, ограничения, решение и уроки.
 
+### Первый rule-based baseline
+
+```bash
+python -m father_quant_lab run-rule-baseline \
+  --data data/samples/eurusd_daily_sample.csv \
+  --output reports/generated/m0-rule-101.json \
+  --short-window 3 --long-window 5
+```
+
+Команда сравнивает `BOT-RULE-101` с четырьмя обязательными контролями. Sample
+моделированный, окна не оптимизируются, а результат не является доказательством
+доходности. См. [ТЗ FQL-S4-MA-001](docs/specifications/m0-s4-moving-average-baseline.md)
+и [ADR-0007](docs/adr/0007-moving-average-mechanical-baseline.md).
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)

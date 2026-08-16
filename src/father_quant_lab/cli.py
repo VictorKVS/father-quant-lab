@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .data import load_bars_csv
 from .engine import BacktestEngine, ExecutionCostModel, RiskPolicy
-from .evidence import build_run_passport, write_json
+from .evidence import build_rule_baseline_passport, build_run_passport, write_json
 from .provider_gate import evaluate_registry, load_registry
 from .reporting import league_report, write_report
 from .reference_data import (
@@ -20,7 +20,7 @@ from .reference_data import (
     write_passport,
     write_reference_csv,
 )
-from .strategies import control_strategies
+from .strategies import control_strategies, first_rule_league
 from .vendor_due_diligence import evaluate_dossiers, load_dossiers
 
 
@@ -36,6 +36,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="evidence passport path; defaults to <output>.passport.json",
     )
     controls.add_argument("--seed", type=int, default=20260816)
+    rule = subparsers.add_parser(
+        "run-rule-baseline", help="run controls plus BOT-RULE-101 moving-average baseline"
+    )
+    rule.add_argument("--data", type=Path, required=True)
+    rule.add_argument("--output", type=Path, required=True)
+    rule.add_argument("--passport", type=Path)
+    rule.add_argument("--seed", type=int, default=20260816)
+    rule.add_argument("--short-window", type=int, default=3)
+    rule.add_argument("--long-window", type=int, default=5)
     reference = subparsers.add_parser(
         "fetch-ecb-reference", help="fetch official non-tradable EUR/USD reference rates"
     )
@@ -99,6 +108,61 @@ def main(argv: list[str] | None = None) -> int:
             report_path=destination,
             dataset_path=args.data,
             seed=args.seed,
+            results=results,
+        )
+        passport_destination = write_json(passport_path, passport)
+        print(destination)
+        print(passport_destination)
+        return 0
+    if args.command == "run-rule-baseline":
+        bars = load_bars_csv(args.data)
+        costs = ExecutionCostModel()
+        risk = RiskPolicy(max_position_weight=1.0, max_drawdown=0.10)
+        engine = BacktestEngine(initial_equity=10_000, costs=costs, risk=risk)
+        strategies = first_rule_league(
+            args.seed,
+            short_window=args.short_window,
+            long_window=args.long_window,
+        )
+        results = [engine.run(bars, strategy) for strategy in strategies]
+        run_config = {
+            "dataset": {
+                "name": args.data.name,
+                "sha256": hashlib.sha256(args.data.read_bytes()).hexdigest(),
+                "classification": "MODELLED",
+            },
+            "seed": args.seed,
+            "rule": {
+                "strategy_id": "BOT-RULE-101",
+                "short_window": args.short_window,
+                "long_window": args.long_window,
+                "optimization_performed": False,
+            },
+            "execution_costs_bps": {
+                "spread": costs.spread_bps,
+                "slippage": costs.slippage_bps,
+                "commission": costs.commission_bps,
+            },
+            "risk": {
+                "max_position_weight": risk.max_position_weight,
+                "max_drawdown": risk.max_drawdown,
+                "short_allowed": False,
+                "leverage_allowed": False,
+            },
+        }
+        destination = write_report(args.output, league_report(results, run_config=run_config))
+        passport_path = args.passport or destination.with_name(
+            f"{destination.stem}.passport.json"
+        )
+        passport = build_rule_baseline_passport(
+            run_id=(
+                f"RUN-M0-RULE-101-S{args.short_window}-L{args.long_window}-SEED-{args.seed}"
+            ),
+            report_path=destination,
+            dataset_path=args.data,
+            seed=args.seed,
+            short_window=args.short_window,
+            long_window=args.long_window,
             results=results,
         )
         passport_destination = write_json(passport_path, passport)

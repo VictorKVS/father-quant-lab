@@ -1,0 +1,17 @@
+schema_version: 1.0.0
+registration_status: FIXED_BEFORE_RUN
+optimization_allowed: false
+parameters:
+  short_window:
+    type: integer
+    registered_value: 3
+    constraint: "0 < short_window < long_window"
+  long_window:
+    type: integer
+    registered_value: 5
+    constraint: "long_window > short_window"
+  position_mode:
+    type: enum
+    registered_value: long_flat
+    allowed_values:
+      - long_flat

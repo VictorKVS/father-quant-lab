@@ -6,7 +6,7 @@
 - S1: maturity model, robot registry, polygon scenarios and dataset contract
 - S2: official daily FX data adapter and provenance model — ECB reference slice, provider gate and pre-purchase vendor/sample gate implemented; tradable provider remains blocked
 - S3: deterministic reference backtest engine
-- S4: first controlled league with control and rule-based robots
+- S4: first controlled league — BOT-RULE-101 mechanics implemented on modelled sample; historical/OOS evidence remains blocked by S2 data gate
 - S5: transaction-cost, execution and independent risk models
 - S6: historical regimes, synthetic stress and cross-engine verification
 - S7: shadow mode and paper-trading simulator

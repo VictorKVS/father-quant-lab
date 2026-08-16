@@ -1,0 +1,787 @@
+{
+  "live_orders_forbidden": true,
+  "mode": "backtest_only",
+  "results": [
+    {
+      "equity_curve": [
+        {
+          "cash": 10000,
+          "close": 1.044,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-02T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.048,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-05T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.045,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-06T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.039,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-07T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.042,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-08T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.047,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-09T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.051,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-12T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.048,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-13T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.041,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-14T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.043,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-15T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.049,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-16T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.053,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-19T00:00:00+00:00"
+        }
+      ],
+      "fills": [],
+      "instrument": "EUR/USD",
+      "metrics": {
+        "exposure_ratio": 0.0,
+        "final_equity": 10000.0,
+        "initial_equity": 10000,
+        "kill_switch_triggered": false,
+        "max_drawdown": 0.0,
+        "total_return": 0.0,
+        "trade_count": 0,
+        "turnover": 0.0
+      },
+      "strategy_id": "BOT-CTRL-000"
+    },
+    {
+      "equity_curve": [
+        {
+          "cash": 10000,
+          "close": 1.044,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-02T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.048,
+          "drawdown": 0.0,
+          "equity": 10037.109703006632,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-05T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.045,
+          "drawdown": 0.002862595419847347,
+          "equity": 10008.3775187423,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-06T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.039,
+          "drawdown": 0.00858778625954204,
+          "equity": 9950.913150213635,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-07T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.042,
+          "drawdown": 0.005725190839694694,
+          "equity": 9979.645334477967,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-08T00:00:00+00:00"
+        },
+        {
+          "cash": 9978.447796997123,
+          "close": 1.047,
+          "drawdown": 0.005844501828244142,
+          "equity": 9978.447796997123,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-09T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.051,
+          "drawdown": 0.0021661331021829433,
+          "equity": 10015.367987428708,
+          "kill_switch_active": false,
+          "position_units": 9529.370111730455,
+          "timestamp": "2026-01-12T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.048,
+          "drawdown": 0.005014374396848376,
+          "equity": 9986.779877093517,
+          "kill_switch_active": false,
+          "position_units": 9529.370111730455,
+          "timestamp": "2026-01-13T00:00:00+00:00"
+        },
+        {
+          "cash": 9985.581483481828,
+          "close": 1.041,
+          "drawdown": 0.005133770681949201,
+          "equity": 9985.581483481828,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-14T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.043,
+          "drawdown": 0.0033420051998320766,
+          "equity": 10003.565630187899,
+          "kill_switch_active": false,
+          "position_units": 9591.146337668168,
+          "timestamp": "2026-01-15T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.049,
+          "drawdown": 0.0,
+          "equity": 10061.112508213908,
+          "kill_switch_active": false,
+          "position_units": 9591.146337668168,
+          "timestamp": "2026-01-16T00:00:00+00:00"
+        },
+        {
+          "cash": 10098.265176512306,
+          "close": 1.053,
+          "drawdown": 0.00011999799999995453,
+          "equity": 10098.265176512306,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-19T00:00:00+00:00"
+        }
+      ],
+      "fills": [
+        {
+          "commission": 0.19999600007999843,
+          "execution_time": "2026-01-05T00:00:00+00:00",
+          "price": 1.0441044,
+          "reason": "seeded random target (20260816)",
+          "side": "BUY",
+          "signal_time": "2026-01-02T00:00:00+00:00",
+          "units": 9577.39475477732
+        },
+        {
+          "commission": 0.19957294739889045,
+          "execution_time": "2026-01-09T00:00:00+00:00",
+          "price": 1.0418958,
+          "reason": "seeded random target (20260816)",
+          "side": "SELL",
+          "signal_time": "2026-01-08T00:00:00+00:00",
+          "units": 9577.39475477732
+        },
+        {
+          "commission": 0.1995649646406497,
+          "execution_time": "2026-01-12T00:00:00+00:00",
+          "price": 1.0471047,
+          "reason": "seeded random target (20260816)",
+          "side": "BUY",
+          "signal_time": "2026-01-09T00:00:00+00:00",
+          "units": 9529.370111730455
+        },
+        {
+          "commission": 0.1997156239821162,
+          "execution_time": "2026-01-14T00:00:00+00:00",
+          "price": 1.0478952000000001,
+          "reason": "seeded random target (20260816)",
+          "side": "SELL",
+          "signal_time": "2026-01-13T00:00:00+00:00",
+          "units": 9529.370111730455
+        },
+        {
+          "commission": 0.19970763551692625,
+          "execution_time": "2026-01-15T00:00:00+00:00",
+          "price": 1.0411040999999999,
+          "reason": "seeded random target (20260816)",
+          "side": "BUY",
+          "signal_time": "2026-01-14T00:00:00+00:00",
+          "units": 9591.146337668168
+        },
+        {
+          "commission": 0.2019693429171045,
+          "execution_time": "2026-01-19T00:00:00+00:00",
+          "price": 1.0528947,
+          "reason": "end-of-test liquidation",
+          "side": "SELL",
+          "signal_time": "2026-01-19T00:00:00+00:00",
+          "units": 9591.146337668168
+        }
+      ],
+      "instrument": "EUR/USD",
+      "metrics": {
+        "exposure_ratio": 0.6666666666666666,
+        "final_equity": 10098.265176512306,
+        "initial_equity": 10000,
+        "kill_switch_triggered": false,
+        "max_drawdown": 0.00858778625954204,
+        "total_return": 0.00982651765123066,
+        "trade_count": 6,
+        "turnover": 6.0026325726784275
+      },
+      "strategy_id": "BOT-CTRL-001"
+    },
+    {
+      "equity_curve": [
+        {
+          "cash": 10000,
+          "close": 1.044,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-02T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.048,
+          "drawdown": 0.0,
+          "equity": 10037.109703006632,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-05T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.045,
+          "drawdown": 0.002862595419847347,
+          "equity": 10008.3775187423,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-06T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.039,
+          "drawdown": 0.00858778625954204,
+          "equity": 9950.913150213635,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-07T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.042,
+          "drawdown": 0.005725190839694694,
+          "equity": 9979.645334477967,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-08T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.047,
+          "drawdown": 0.000954198473282597,
+          "equity": 10027.532308251853,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-09T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.051,
+          "drawdown": 0.0,
+          "equity": 10065.841887270963,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-12T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.048,
+          "drawdown": 0.0028544243577544037,
+          "equity": 10037.109703006632,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-13T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.041,
+          "drawdown": 0.009514747859181605,
+          "equity": 9970.06793972319,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-14T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.043,
+          "drawdown": 0.007611798287345373,
+          "equity": 9989.222729232744,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-15T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.049,
+          "drawdown": 0.0019029495718362321,
+          "equity": 10046.687097761409,
+          "kill_switch_active": false,
+          "position_units": 9577.39475477732,
+          "timestamp": "2026-01-16T00:00:00+00:00"
+        },
+        {
+          "cash": 10083.786497349298,
+          "close": 1.053,
+          "drawdown": 0.00011999799999995453,
+          "equity": 10083.786497349298,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-19T00:00:00+00:00"
+        }
+      ],
+      "fills": [
+        {
+          "commission": 0.19999600007999843,
+          "execution_time": "2026-01-05T00:00:00+00:00",
+          "price": 1.0441044,
+          "reason": "buy-and-hold target",
+          "side": "BUY",
+          "signal_time": "2026-01-02T00:00:00+00:00",
+          "units": 9577.39475477732
+        },
+        {
+          "commission": 0.20167976354225683,
+          "execution_time": "2026-01-19T00:00:00+00:00",
+          "price": 1.0528947,
+          "reason": "end-of-test liquidation",
+          "side": "SELL",
+          "signal_time": "2026-01-19T00:00:00+00:00",
+          "units": 9577.39475477732
+        }
+      ],
+      "instrument": "EUR/USD",
+      "metrics": {
+        "exposure_ratio": 0.8333333333333334,
+        "final_equity": 10083.786497349298,
+        "initial_equity": 10000,
+        "kill_switch_triggered": false,
+        "max_drawdown": 0.009514747859181605,
+        "total_return": 0.008378649734929855,
+        "trade_count": 2,
+        "turnover": 2.008378818111276
+      },
+      "strategy_id": "BOT-CTRL-002"
+    },
+    {
+      "equity_curve": [
+        {
+          "cash": 10000,
+          "close": 1.044,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-02T00:00:00+00:00"
+        },
+        {
+          "cash": 4999.39999,
+          "close": 1.048,
+          "drawdown": 0.0,
+          "equity": 10018.557078122605,
+          "kill_switch_active": false,
+          "position_units": 4789.272030651341,
+          "timestamp": "2026-01-05T00:00:00+00:00"
+        },
+        {
+          "cash": 4999.39999,
+          "close": 1.045,
+          "drawdown": 0.0014341203009493597,
+          "equity": 10004.18926203065,
+          "kill_switch_active": false,
+          "position_units": 4789.272030651341,
+          "timestamp": "2026-01-06T00:00:00+00:00"
+        },
+        {
+          "cash": 4999.39999,
+          "close": 1.039,
+          "drawdown": 0.004302360902847635,
+          "equity": 9975.453629846743,
+          "kill_switch_active": false,
+          "position_units": 4789.272030651341,
+          "timestamp": "2026-01-07T00:00:00+00:00"
+        },
+        {
+          "cash": 4999.39999,
+          "close": 1.042,
+          "drawdown": 0.0028682406018982753,
+          "equity": 9989.821445938698,
+          "kill_switch_active": false,
+          "position_units": 4789.272030651341,
+          "timestamp": "2026-01-08T00:00:00+00:00"
+        },
+        {
+          "cash": 4999.39999,
+          "close": 1.047,
+          "drawdown": 0.00047804010031649025,
+          "equity": 10013.767806091953,
+          "kill_switch_active": false,
+          "position_units": 4789.272030651341,
+          "timestamp": "2026-01-09T00:00:00+00:00"
+        },
+        {
+          "cash": 5006.8830049913795,
+          "close": 1.051,
+          "drawdown": 0.0,
+          "equity": 10032.895404324065,
+          "kill_switch_active": false,
+          "position_units": 4782.124071677151,
+          "timestamp": "2026-01-12T00:00:00+00:00"
+        },
+        {
+          "cash": 5006.8830049913795,
+          "close": 1.048,
+          "drawdown": 0.001429933397775529,
+          "equity": 10018.549032109033,
+          "kill_switch_active": false,
+          "position_units": 4782.124071677151,
+          "timestamp": "2026-01-13T00:00:00+00:00"
+        },
+        {
+          "cash": 5006.8830049913795,
+          "close": 1.041,
+          "drawdown": 0.004766444659251801,
+          "equity": 9985.074163607293,
+          "kill_switch_active": false,
+          "position_units": 4782.124071677151,
+          "timestamp": "2026-01-14T00:00:00+00:00"
+        },
+        {
+          "cash": 5006.8830049913795,
+          "close": 1.043,
+          "drawdown": 0.003813155727401374,
+          "equity": 9994.638411750648,
+          "kill_switch_active": false,
+          "position_units": 4782.124071677151,
+          "timestamp": "2026-01-15T00:00:00+00:00"
+        },
+        {
+          "cash": 5006.8830049913795,
+          "close": 1.049,
+          "drawdown": 0.0009532889318504267,
+          "equity": 10023.33115618071,
+          "kill_switch_active": false,
+          "position_units": 4782.124071677151,
+          "timestamp": "2026-01-16T00:00:00+00:00"
+        },
+        {
+          "cash": 10041.837158834871,
+          "close": 1.053,
+          "drawdown": 6.0113178506626674e-05,
+          "equity": 10041.837158834871,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-19T00:00:00+00:00"
+        }
+      ],
+      "fills": [
+        {
+          "commission": 0.10001,
+          "execution_time": "2026-01-05T00:00:00+00:00",
+          "price": 1.0441044,
+          "reason": "scheduled rebalance",
+          "side": "BUY",
+          "signal_time": "2026-01-02T00:00:00+00:00",
+          "units": 4789.272030651341
+        },
+        {
+          "commission": 0.0001496632930934521,
+          "execution_time": "2026-01-12T00:00:00+00:00",
+          "price": 1.0468952999999999,
+          "reason": "scheduled rebalance",
+          "side": "SELL",
+          "signal_time": "2026-01-09T00:00:00+00:00",
+          "units": 7.14795897419026
+        },
+        {
+          "commission": 9.564189683332427e-05,
+          "execution_time": "2026-01-19T00:00:00+00:00",
+          "price": 1.0488951,
+          "reason": "scheduled rebalance",
+          "side": "SELL",
+          "signal_time": "2026-01-16T00:00:00+00:00",
+          "units": 4.559173592922889
+        },
+        {
+          "commission": 0.10060545520197849,
+          "execution_time": "2026-01-19T00:00:00+00:00",
+          "price": 1.0528947,
+          "reason": "end-of-test liquidation",
+          "side": "SELL",
+          "signal_time": "2026-01-19T00:00:00+00:00",
+          "units": 4777.564898084228
+        }
+      ],
+      "instrument": "EUR/USD",
+      "metrics": {
+        "exposure_ratio": 0.8333333333333334,
+        "final_equity": 10041.837158834871,
+        "initial_equity": 10000,
+        "kill_switch_triggered": false,
+        "max_drawdown": 0.004766444659251801,
+        "total_return": 0.0041837158834869825,
+        "trade_count": 4,
+        "turnover": 1.0043038019595263
+      },
+      "strategy_id": "BOT-CTRL-003"
+    },
+    {
+      "equity_curve": [
+        {
+          "cash": 10000,
+          "close": 1.044,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-02T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.048,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-05T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.045,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-06T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.039,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-07T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.042,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-08T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.047,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-09T00:00:00+00:00"
+        },
+        {
+          "cash": 10000,
+          "close": 1.051,
+          "drawdown": 0.0,
+          "equity": 10000.0,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-12T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.048,
+          "drawdown": 0.0029740694634705633,
+          "equity": 9970.259305365294,
+          "kill_switch_active": false,
+          "position_units": 9513.606207409632,
+          "timestamp": "2026-01-13T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.041,
+          "drawdown": 0.00963359380865747,
+          "equity": 9903.664061913425,
+          "kill_switch_active": false,
+          "position_units": 9513.606207409632,
+          "timestamp": "2026-01-14T00:00:00+00:00"
+        },
+        {
+          "cash": 0.0,
+          "close": 1.043,
+          "drawdown": 0.0077308725671755285,
+          "equity": 9922.691274328245,
+          "kill_switch_active": false,
+          "position_units": 9513.606207409632,
+          "timestamp": "2026-01-15T00:00:00+00:00"
+        },
+        {
+          "cash": 9921.500571220708,
+          "close": 1.049,
+          "drawdown": 0.007849942877929283,
+          "equity": 9921.500571220708,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-16T00:00:00+00:00"
+        },
+        {
+          "cash": 9921.500571220708,
+          "close": 1.053,
+          "drawdown": 0.007849942877929283,
+          "equity": 9921.500571220708,
+          "kill_switch_active": false,
+          "position_units": 0.0,
+          "timestamp": "2026-01-19T00:00:00+00:00"
+        }
+      ],
+      "fills": [
+        {
+          "commission": 0.19999600007999846,
+          "execution_time": "2026-01-13T00:00:00+00:00",
+          "price": 1.0511051,
+          "reason": "ma-cross short=3 long=5",
+          "side": "BUY",
+          "signal_time": "2026-01-12T00:00:00+00:00",
+          "units": 9513.606207409632
+        },
+        {
+          "commission": 0.19843398010401625,
+          "execution_time": "2026-01-16T00:00:00+00:00",
+          "price": 1.0428956999999999,
+          "reason": "ma-cross short=3 long=5",
+          "side": "SELL",
+          "signal_time": "2026-01-15T00:00:00+00:00",
+          "units": 9513.606207409632
+        }
+      ],
+      "instrument": "EUR/USD",
+      "metrics": {
+        "exposure_ratio": 0.25,
+        "final_equity": 9921.500571220708,
+        "initial_equity": 10000,
+        "kill_switch_triggered": false,
+        "max_drawdown": 0.00963359380865747,
+        "total_return": -0.007849942877929283,
+        "trade_count": 2,
+        "turnover": 1.9921499009200736
+      },
+      "strategy_id": "BOT-RULE-101"
+    }
+  ],
+  "run_config": {
+    "dataset": {
+      "classification": "MODELLED",
+      "name": "eurusd_daily_sample.csv",
+      "sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a"
+    },
+    "execution_costs_bps": {
+      "commission": 0.2,
+      "slippage": 0.5,
+      "spread": 1.0
+    },
+    "risk": {
+      "leverage_allowed": false,
+      "max_drawdown": 0.1,
+      "max_position_weight": 1.0,
+      "short_allowed": false
+    },
+    "rule": {
+      "long_window": 5,
+      "optimization_performed": false,
+      "short_window": 3,
+      "strategy_id": "BOT-RULE-101"
+    },
+    "seed": 20260816
+  },
+  "schema_version": "1.0.0"
+}
