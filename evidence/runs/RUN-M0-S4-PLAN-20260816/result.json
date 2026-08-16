@@ -1,0 +1,48 @@
+{
+  "dataset": {
+    "bar_count": 12,
+    "classification": "MODELLED",
+    "instrument": "EUR/USD",
+    "path": "data/samples/eurusd_daily_sample.csv",
+    "sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a"
+  },
+  "decision": "plan structure accepted; dataset admission and performance evidence remain separate gates",
+  "embargo_bars": 0,
+  "gate_id": "FQL-S4-GATE-004",
+  "live_orders_forbidden": true,
+  "optimization_performed": false,
+  "out_of_sample_access": "SEALED_UNTIL_FINAL_EVALUATION",
+  "paper_trading_allowed": false,
+  "performance_claim_allowed": false,
+  "plan_id": "PLAN-M0-RULE-101-MODELLED-001",
+  "schema_version": "1.0.0",
+  "splits": [
+    {
+      "bar_count": 4,
+      "end": "2026-01-07T00:00:00+00:00",
+      "name": "TRAIN",
+      "start": "2026-01-02T00:00:00+00:00"
+    },
+    {
+      "bar_count": 4,
+      "end": "2026-01-13T00:00:00+00:00",
+      "name": "VALIDATION",
+      "start": "2026-01-08T00:00:00+00:00"
+    },
+    {
+      "bar_count": 4,
+      "end": "2026-01-19T00:00:00+00:00",
+      "name": "OUT_OF_SAMPLE",
+      "start": "2026-01-14T00:00:00+00:00"
+    }
+  ],
+  "status": "VALID_MODELLED_ONLY",
+  "strategy": {
+    "parameters": {
+      "long_window": 5,
+      "position_mode": "long_flat",
+      "short_window": 3
+    },
+    "strategy_id": "BOT-RULE-101"
+  }
+}

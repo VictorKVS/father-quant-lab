@@ -1,0 +1,75 @@
+{
+  "artifact_id": "RUN-M0-S4-PLAN-20260816",
+  "artifact_type": "experiment_plan_gate_run",
+  "purpose": "Verify sealed chronological experiment structure without admitting data or performance claims",
+  "owner_role": "AGT-TIME-402",
+  "source_basis": [
+    "docs/research-methodology.md",
+    "docs/specifications/m0-s4-sealed-experiment-plan.md"
+  ],
+  "inputs": [
+    "configs/experiments/BOT-RULE-101-modelled-preregistered.json",
+    "data/samples/eurusd_daily_sample.csv"
+  ],
+  "outputs": [
+    "evidence/runs/RUN-M0-S4-PLAN-20260816/result.json"
+  ],
+  "relations": [
+    "FQL-S4-PLAN-002",
+    "FQL-S4-GATE-004",
+    "ADR-0008",
+    "BOT-RULE-101"
+  ],
+  "version": "1.0.0",
+  "sha256": "9fda76de568c9e4f37fa7cb97b4bd582e0ddec38dbed02ca34c822eea32e3054",
+  "sha256_basis": "evidence/runs/RUN-M0-S4-PLAN-20260816/result.json",
+  "status": "ACCEPTED_MODELLED_STRUCTURE_ONLY",
+  "lifecycle": {
+    "idea": "Seal data identity, parameters and chronological splits before evaluation",
+    "source": "Book-driven research route and project research methodology",
+    "hypothesis": "A fail-closed gate detects altered data, overlap, wrong order and unsealed OOS",
+    "requirement": "FQL-S4-PLAN-002",
+    "design": "ADR-0008",
+    "code": "src/father_quant_lab/experiment_plan.py",
+    "test": ["tests/test_experiment_plan.py", "tests/test_cli.py"],
+    "run": "python -m father_quant_lab validate-experiment-plan",
+    "result": "VALID_MODELLED_ONLY; 4/4/4 bars; all claims remain closed",
+    "critique": "Twelve modelled bars cannot establish a defensible research horizon or embargo",
+    "decision": "Accept gate mechanics; do not promote M0/S2 or BOT-RULE-101",
+    "lesson": "Predregistration is a separate gate from data admission and strategy evidence"
+  },
+  "provenance": {
+    "dataset_sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a",
+    "plan_sha256": "13b7e1bdb5d2683986a57884a88f4938ad680f4e81f8622a923131924a74759f",
+    "code_sha256": "833ee57e045d39d1f573ee986b0136d7c066df0247b95c5e55f22ac2f2b9378b",
+    "python": "3.12.13",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
+  },
+  "limitations": [
+    "MODELLED data only",
+    "Four bars per split have no statistical meaning",
+    "Zero embargo is a contract fixture, not a historical recommendation",
+    "Dataset license, market semantics and quality are not proved"
+  ],
+  "verification": [
+    "48 unit tests passed",
+    "compileall passed",
+    "git diff --check passed",
+    "dataset hash mismatch rejected",
+    "overlap and insufficient embargo rejected",
+    "unsealed and malformed plans rejected"
+  ],
+  "decision": "ACCEPT_GATE_MECHANICS_ONLY",
+  "lessons": [
+    "Do not open OOS while developing a strategy",
+    "Count embargo in observations, not calendar gaps",
+    "A valid plan does not make an invalid dataset tradable"
+  ],
+  "safety": {
+    "performance_claim_allowed": false,
+    "paper_trading_allowed": false,
+    "live_orders_forbidden": true,
+    "real_money_used": false,
+    "secrets_used": false
+  }
+}

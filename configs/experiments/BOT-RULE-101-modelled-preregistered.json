@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "plan_id": "PLAN-M0-RULE-101-MODELLED-001",
+  "registration_status": "SEALED",
+  "registered_before_evaluation": true,
+  "dataset": {
+    "sha256": "0a03a90118472528066a69a1046bc4d691c8bf3a92f79e91b7f82a33aea90a3a",
+    "classification": "MODELLED",
+    "instrument": "EUR/USD"
+  },
+  "strategy": {
+    "strategy_id": "BOT-RULE-101",
+    "parameters": {
+      "short_window": 3,
+      "long_window": 5,
+      "position_mode": "long_flat"
+    }
+  },
+  "splits": [
+    {"name": "TRAIN", "start": "2026-01-02T00:00:00Z", "end": "2026-01-07T00:00:00Z"},
+    {"name": "VALIDATION", "start": "2026-01-08T00:00:00Z", "end": "2026-01-13T00:00:00Z"},
+    {"name": "OUT_OF_SAMPLE", "start": "2026-01-14T00:00:00Z", "end": "2026-01-19T00:00:00Z"}
+  ],
+  "embargo_bars": 0,
+  "optimization_performed": false,
+  "out_of_sample_access": "SEALED_UNTIL_FINAL_EVALUATION",
+  "live_orders_forbidden": true
+}

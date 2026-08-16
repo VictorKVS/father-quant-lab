@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .data import load_bars_csv
 from .engine import BacktestEngine, ExecutionCostModel, RiskPolicy
+from .experiment_plan import evaluate_experiment_plan, load_experiment_plan
 from .evidence import build_rule_baseline_passport, build_run_passport, write_json
 from .provider_gate import evaluate_registry, load_registry
 from .reporting import league_report, write_report
@@ -64,6 +65,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     dossiers.add_argument("--dossiers", type=Path, required=True)
     dossiers.add_argument("--output", type=Path, required=True)
+    plan = subparsers.add_parser(
+        "validate-experiment-plan",
+        help="validate a sealed chronological train/validation/OOS plan",
+    )
+    plan.add_argument("--plan", type=Path, required=True)
+    plan.add_argument("--data", type=Path, required=True)
+    plan.add_argument("--output", type=Path, required=True)
     return parser
 
 
@@ -196,6 +204,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "evaluate-vendor-dossiers":
         payload = load_dossiers(args.dossiers)
         destination = write_json(args.output, evaluate_dossiers(payload))
+        print(destination)
+        return 0
+    if args.command == "validate-experiment-plan":
+        plan = load_experiment_plan(args.plan)
+        bars = load_bars_csv(args.data)
+        result = evaluate_experiment_plan(plan, dataset_path=args.data, bars=bars)
+        destination = write_json(args.output, result)
         print(destination)
         return 0
     raise AssertionError("unreachable command")

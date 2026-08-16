@@ -150,6 +150,20 @@ python -m father_quant_lab run-rule-baseline \
 доходности. См. [ТЗ FQL-S4-MA-001](docs/specifications/m0-s4-moving-average-baseline.md)
 и [ADR-0007](docs/adr/0007-moving-average-mechanical-baseline.md).
 
+### Sealed-план исторического эксперимента
+
+```bash
+python -m father_quant_lab validate-experiment-plan \
+  --plan configs/experiments/BOT-RULE-101-modelled-preregistered.json \
+  --data data/samples/eurusd_daily_sample.csv \
+  --output evidence/local/experiment-plan-result.json
+```
+
+Gate сверяет SHA-256, параметры, порядок train/validation/OOS и embargo в барах.
+На MODELLED sample он подтверждает только структуру исследования и не разрешает
+PAPER, LIVE или заявления о доходности. См. [FQL-S4-PLAN-002](docs/specifications/m0-s4-sealed-experiment-plan.md)
+и [ADR-0008](docs/adr/0008-sealed-chronological-experiment-plan.md).
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)

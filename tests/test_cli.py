@@ -8,6 +8,26 @@ from father_quant_lab.cli import main
 
 
 class CliTests(unittest.TestCase):
+    def test_cli_validates_sealed_experiment_plan(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "plan-result.json"
+            exit_code = main(
+                [
+                    "validate-experiment-plan",
+                    "--plan",
+                    "configs/experiments/BOT-RULE-101-modelled-preregistered.json",
+                    "--data",
+                    "data/samples/eurusd_daily_sample.csv",
+                    "--output",
+                    str(output),
+                ]
+            )
+            result = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(result["gate_id"], "FQL-S4-GATE-004")
+        self.assertEqual(result["status"], "VALID_MODELLED_ONLY")
+        self.assertFalse(result["performance_claim_allowed"])
+
     def test_run_controls_records_reproducibility_and_safety_config(self) -> None:
         fixture = Path("data/samples/eurusd_daily_sample.csv")
         with tempfile.TemporaryDirectory() as directory:
