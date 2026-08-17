@@ -31,6 +31,7 @@
 | REGIME | warm-up, фиксированные пороги, timestamp доступности и неизменность от будущего бара |
 | ATTR | dataset hash, timestamps, warm-up coverage и запрет использования меток стратегией |
 | STRESS | deterministic fixtures, branch coverage, unique IDs и запрет исторических claims |
+| XVERIFY | независимая арифметика, SHA/ID, 7 полей метки, tolerance и сохраняемые mismatches |
 
 ## Definition of Done
 

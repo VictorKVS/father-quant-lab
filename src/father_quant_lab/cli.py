@@ -27,6 +27,7 @@ from .reference_data import (
     write_reference_csv,
 )
 from .regimes import CausalRegimeClassifier, build_regime_report
+from .regime_crosscheck import crosscheck_regime_result
 from .regime_attribution import attribute_result, load_regime_report
 from .strategies import control_strategies, first_rule_league
 from .stress_scenarios import load_stress_suite, run_stress_suite
@@ -109,6 +110,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     stress.add_argument("--suite", type=Path, required=True)
     stress.add_argument("--output", type=Path, required=True)
+    crosscheck = subparsers.add_parser(
+        "crosscheck-regimes", help="independently verify MODELLED regime labels with Decimal"
+    )
+    crosscheck.add_argument("--suite", type=Path, required=True)
+    crosscheck.add_argument("--primary-result", type=Path, required=True)
+    crosscheck.add_argument("--output", type=Path, required=True)
+    crosscheck.add_argument("--numeric-tolerance", default="1e-12")
     return parser
 
 
@@ -303,4 +311,13 @@ def main(argv: list[str] | None = None) -> int:
         destination = write_json(args.output, result)
         print(destination)
         return 0
+    if args.command == "crosscheck-regimes":
+        result = crosscheck_regime_result(
+            suite_path=args.suite,
+            primary_result_path=args.primary_result,
+            numeric_tolerance=args.numeric_tolerance,
+        )
+        destination = write_json(args.output, result)
+        print(destination)
+        return 0 if result["status"] == "PASS_INDEPENDENT_LABEL_EQUIVALENCE" else 2
     raise AssertionError("unreachable command")

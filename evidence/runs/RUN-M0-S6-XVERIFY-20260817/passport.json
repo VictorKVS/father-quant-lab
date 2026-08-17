@@ -1,0 +1,70 @@
+{
+  "artifact_id": "RUN-M0-S6-XVERIFY-20260817",
+  "artifact_type": "independent_regime_crosscheck_run",
+  "purpose": "Cross-check every registered regime label with a standalone Decimal oracle",
+  "owner_role": "AGT-TEST-407",
+  "source_basis": [
+    "evidence/runs/RUN-M0-S6-STRESS-20260817/result.json",
+    "docs/specifications/m0-s6-regime-crosscheck.md"
+  ],
+  "inputs": [
+    "configs/stress/regime-branch-suite.json",
+    "evidence/runs/RUN-M0-S6-STRESS-20260817/result.json"
+  ],
+  "outputs": ["evidence/runs/RUN-M0-S6-XVERIFY-20260817/result.json"],
+  "relations": ["FQL-S6-XVERIFY-004", "ADR-0013", "FQL-REGIME-CROSSCHECK-001"],
+  "version": "1.0.0",
+  "sha256": "9fd55b9722c97e0172aea4cb9ad21492a1da02ba96cd36378ae95e58db3c1e3c",
+  "sha256_basis": "evidence/runs/RUN-M0-S6-XVERIFY-20260817/result.json",
+  "status": "ACCEPTED_INDEPENDENT_CONTRACT_EQUIVALENCE_ONLY",
+  "lifecycle": {
+    "idea": "Challenge the classifier with a second implementation rather than another self-test",
+    "source": "Accepted deterministic stress run RUN-M0-S6-STRESS-20260817",
+    "hypothesis": "A standalone Decimal oracle reproduces every registered label within a fixed tolerance",
+    "requirement": "FQL-S6-XVERIFY-004",
+    "design": "ADR-0013",
+    "code": "src/father_quant_lab/regime_crosscheck.py",
+    "test": ["tests/test_regime_crosscheck.py", "tests/test_cli.py"],
+    "run": "python -m father_quant_lab crosscheck-regimes",
+    "result": "PASS; 4 scenarios; 28 labels; 196 fields; 0 mismatches",
+    "critique": "Both implementations still share one specification and constructed inputs",
+    "decision": "Accept implementation equivalence; reject market-validity inference",
+    "lesson": "Independent arithmetic catches implementation drift but cannot validate the model itself"
+  },
+  "provenance": {
+    "suite_sha256": "f1a8a00cf7ce28c06dbc967827fac430947507bbbd8954d17c70ccdbd0d39c69",
+    "primary_result_sha256": "07f53e1e0f939ffa32dd308c893cf4a83666710381c590aef6a002cca32bccac",
+    "code_sha256": "6865f19a2d9ccb0012fdb216f0f24df7252640de9fd03c422c3c4295e01dbfca",
+    "python": "3.12.13",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+    "numeric_tolerance": "1e-12"
+  },
+  "limitations": [
+    "MODELLED deterministic stress inputs only",
+    "Both implementations share the same regime contract",
+    "No manual golden labels or external engine",
+    "No historical accuracy, calibration, execution or PnL evidence"
+  ],
+  "verification": [
+    "77 unit tests passed",
+    "28 labels and 196 fields cross-checked with zero mismatches",
+    "tampered class and numeric metric produce BLOCKED",
+    "suite identity mismatch fails closed",
+    "repeat execution is byte-identical",
+    "compileall and git diff --check passed"
+  ],
+  "decision": "ACCEPT_IMPLEMENTATION_EQUIVALENCE_ONLY",
+  "lessons": [
+    "A second numeric representation reduces common implementation risk",
+    "Mismatch reports must be retained rather than converted into exceptions",
+    "Specification and market validity need separate challenges"
+  ],
+  "safety": {
+    "regime_truth_claimed": false,
+    "performance_claim_allowed": false,
+    "paper_trading_allowed": false,
+    "live_orders_forbidden": true,
+    "real_money_used": false,
+    "secrets_used": false
+  }
+}

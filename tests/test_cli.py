@@ -8,6 +8,25 @@ from father_quant_lab.cli import main
 
 
 class CliTests(unittest.TestCase):
+    def test_cli_crosschecks_modelled_regime_labels(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "crosscheck.json"
+            exit_code = main(
+                [
+                    "crosscheck-regimes",
+                    "--suite",
+                    "configs/stress/regime-branch-suite.json",
+                    "--primary-result",
+                    "evidence/runs/RUN-M0-S6-STRESS-20260817/result.json",
+                    "--output",
+                    str(output),
+                ]
+            )
+            result = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(result["status"], "PASS_INDEPENDENT_LABEL_EQUIVALENCE")
+        self.assertEqual(result["mismatch_count"], 0)
+
     def test_cli_runs_modelled_regime_stress_suite(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "stress.json"

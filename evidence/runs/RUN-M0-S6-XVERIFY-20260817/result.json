@@ -1,0 +1,30 @@
+{
+  "artifact_id": "FQL-REGIME-CROSSCHECK-001",
+  "classification": "MODELLED",
+  "field_comparison_count": 196,
+  "label_count": 28,
+  "live_orders_forbidden": true,
+  "mismatch_count": 0,
+  "mismatches": [],
+  "mode": "independent_decimal_oracle",
+  "oracle": {
+    "implementation": "standalone_decimal_recurrence_log_sqrt",
+    "imports_primary_classifier": false,
+    "imports_primary_fixture_generator": false,
+    "numeric_tolerance": "1e-12"
+  },
+  "paper_trading_allowed": false,
+  "performance_claim_allowed": false,
+  "primary_result": {
+    "path": "evidence/runs/RUN-M0-S6-STRESS-20260817/result.json",
+    "sha256": "07f53e1e0f939ffa32dd308c893cf4a83666710381c590aef6a002cca32bccac"
+  },
+  "regime_truth_claimed": false,
+  "scenario_count": 4,
+  "schema_version": "1.0.0",
+  "status": "PASS_INDEPENDENT_LABEL_EQUIVALENCE",
+  "suite": {
+    "path": "configs/stress/regime-branch-suite.json",
+    "sha256": "f1a8a00cf7ce28c06dbc967827fac430947507bbbd8954d17c70ccdbd0d39c69"
+  }
+}

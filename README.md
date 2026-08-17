@@ -216,6 +216,18 @@ python -m father_quant_lab run-regime-stress \
 Сценарии покрывают `UP/DOWN/RANGE` и `HIGH/NORMAL`, но являются только
 `MODELLED/DETERMINISTIC_STRESS`, а не реконструкцией истории или оценкой доходности.
 
+Независимая Decimal-проверка меток запускается отдельно:
+
+```bash
+python -m father_quant_lab crosscheck-regimes \
+  --suite configs/stress/regime-branch-suite.json \
+  --primary-result evidence/runs/RUN-M0-S6-STRESS-20260817/result.json \
+  --output evidence/local/regime-crosscheck.json
+```
+
+Oracle не импортирует основной классификатор. Совпадение подтверждает реализацию
+контракта, но не истинность режимов, качество прогноза или готовность к торговле.
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)

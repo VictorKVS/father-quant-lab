@@ -8,7 +8,7 @@
 - S3: deterministic reference backtest engine
 - S4: first controlled league — BOT-RULE-101 mechanics, sealed chronological-plan gate and independent sufficiency gate implemented; current modelled split is correctly blocked, historical/OOS evidence remains blocked by S2
 - S5: transaction-cost, execution and independent risk models
-- S6: historical regimes, synthetic stress and cross-engine verification — causal labels, retrospective attribution and deterministic branch stress-pack implemented; calibration and cross-engine comparison remain blocked by S2
+- S6: historical regimes, synthetic stress and cross-engine verification — causal labels, retrospective attribution, branch stress-pack and independent Decimal cross-check implemented; historical calibration and external-engine comparison remain blocked by S2
 - S7: shadow mode and paper-trading simulator
 - S8: Trading Console UI-L0/UI-L2 — replay, robot league, evidence and risk panels
 
