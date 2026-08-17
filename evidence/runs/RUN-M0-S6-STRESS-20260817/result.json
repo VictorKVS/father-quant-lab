@@ -1,0 +1,432 @@
+{
+  "artifact_id": "FQL-STRESS-REGIME-001",
+  "classification": "MODELLED",
+  "historical_likelihood_claimed": false,
+  "live_orders_forbidden": true,
+  "missing_trend_classes": [],
+  "missing_volatility_classes": [],
+  "observed_trend_classes": [
+    "DOWN",
+    "RANGE",
+    "UP"
+  ],
+  "observed_volatility_classes": [
+    "HIGH",
+    "NORMAL"
+  ],
+  "paper_trading_allowed": false,
+  "performance_claim_allowed": false,
+  "scenarios": [
+    {
+      "definition_sha256": "4f21c4bae5883cc363723d2649987608522856b9acb4985c2a2568b1b032004d",
+      "observed_trend_classes": [
+        "DOWN"
+      ],
+      "observed_volatility_classes": [
+        "NORMAL"
+      ],
+      "regime_report": {
+        "artifact_id": "FQL-REGIME-LABELS-001",
+        "causality": "past_and_current_closed_bars_only",
+        "dataset": {
+          "bar_count": 12,
+          "classification": "MODELLED",
+          "instrument": "EUR/USD",
+          "sha256": "4f21c4bae5883cc363723d2649987608522856b9acb4985c2a2568b1b032004d",
+          "subtype": "DETERMINISTIC_STRESS"
+        },
+        "label_count": 7,
+        "labels": [
+          {
+            "available_to_system_at": "2026-02-06T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0010005003335835344,
+            "timestamp": "2026-02-06T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.004990009995000988,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-07T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0010005003335835344,
+            "timestamp": "2026-02-07T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.004990009995000988,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-08T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0010005003335835344,
+            "timestamp": "2026-02-08T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.004990009995000988,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-09T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0010005003335835344,
+            "timestamp": "2026-02-09T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.004990009995000877,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-10T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0010005003335835344,
+            "timestamp": "2026-02-10T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.004990009995000988,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-11T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0010005003335835344,
+            "timestamp": "2026-02-11T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.004990009995000988,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-12T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0010005003335835344,
+            "timestamp": "2026-02-12T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.004990009995000877,
+            "volatility": "NORMAL"
+          }
+        ],
+        "live_orders_forbidden": true,
+        "mode": "research_diagnostics_only",
+        "paper_trading_allowed": false,
+        "parameters": {
+          "high_volatility_threshold_bps": 50.0,
+          "lookback_bars": 5,
+          "optimized": false,
+          "trend_threshold_bps": 20.0
+        },
+        "performance_claim_allowed": false,
+        "regime_truth_claimed": false,
+        "schema_version": "1.0.0",
+        "warmup_bars": 5
+      },
+      "scenario_id": "SCN-DOWN-NORMAL"
+    },
+    {
+      "definition_sha256": "b5ab66dd11abc0116854b12d7e2ff33c2b38817d06abdf2047ed6ac729f01671",
+      "observed_trend_classes": [
+        "DOWN",
+        "UP"
+      ],
+      "observed_volatility_classes": [
+        "HIGH"
+      ],
+      "regime_report": {
+        "artifact_id": "FQL-REGIME-LABELS-001",
+        "causality": "past_and_current_closed_bars_only",
+        "dataset": {
+          "bar_count": 12,
+          "classification": "MODELLED",
+          "instrument": "EUR/USD",
+          "sha256": "b5ab66dd11abc0116854b12d7e2ff33c2b38817d06abdf2047ed6ac729f01671",
+          "subtype": "DETERMINISTIC_STRESS"
+        },
+        "label_count": 7,
+        "labels": [
+          {
+            "available_to_system_at": "2026-02-06T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.01996362146209408,
+            "timestamp": "2026-02-06T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.01918416320000005,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-07T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02004363362534283,
+            "timestamp": "2026-02-07T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.02078384319999993,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-08T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.01996362146209408,
+            "timestamp": "2026-02-08T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.01918416320000005,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-09T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02004363362534283,
+            "timestamp": "2026-02-09T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.02078384320000015,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-10T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.01996362146209408,
+            "timestamp": "2026-02-10T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.01918416320000005,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-11T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02004363362534283,
+            "timestamp": "2026-02-11T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.02078384320000004,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-12T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.01996362146209408,
+            "timestamp": "2026-02-12T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.019184163199999826,
+            "volatility": "HIGH"
+          }
+        ],
+        "live_orders_forbidden": true,
+        "mode": "research_diagnostics_only",
+        "paper_trading_allowed": false,
+        "parameters": {
+          "high_volatility_threshold_bps": 50.0,
+          "lookback_bars": 5,
+          "optimized": false,
+          "trend_threshold_bps": 20.0
+        },
+        "performance_claim_allowed": false,
+        "regime_truth_claimed": false,
+        "schema_version": "1.0.0",
+        "warmup_bars": 5
+      },
+      "scenario_id": "SCN-HIGH-OSCILLATION"
+    },
+    {
+      "definition_sha256": "771dafdbea4cf11ab6594ba45e6c73ba0dfe7380254fd8d307cb5d93718e62cf",
+      "observed_trend_classes": [
+        "DOWN",
+        "RANGE"
+      ],
+      "observed_volatility_classes": [
+        "HIGH",
+        "NORMAL"
+      ],
+      "regime_report": {
+        "artifact_id": "FQL-REGIME-LABELS-001",
+        "causality": "past_and_current_closed_bars_only",
+        "dataset": {
+          "bar_count": 12,
+          "classification": "MODELLED",
+          "instrument": "EUR/USD",
+          "sha256": "771dafdbea4cf11ab6594ba45e6c73ba0dfe7380254fd8d307cb5d93718e62cf",
+          "subtype": "DETERMINISTIC_STRESS"
+        },
+        "label_count": 7,
+        "labels": [
+          {
+            "available_to_system_at": "2026-02-06T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02293905860809431,
+            "timestamp": "2026-02-06T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.050000000000000044,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-07T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02293905860809431,
+            "timestamp": "2026-02-07T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.050000000000000044,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-08T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02293905860809431,
+            "timestamp": "2026-02-08T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.050000000000000044,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-09T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02293905860809431,
+            "timestamp": "2026-02-09T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.050000000000000044,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-10T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.02293905860809431,
+            "timestamp": "2026-02-10T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.050000000000000044,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-11T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0,
+            "timestamp": "2026-02-11T00:00:00+00:00",
+            "trend": "RANGE",
+            "trend_return": 0.0,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-12T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.0,
+            "timestamp": "2026-02-12T00:00:00+00:00",
+            "trend": "RANGE",
+            "trend_return": 0.0,
+            "volatility": "NORMAL"
+          }
+        ],
+        "live_orders_forbidden": true,
+        "mode": "research_diagnostics_only",
+        "paper_trading_allowed": false,
+        "parameters": {
+          "high_volatility_threshold_bps": 50.0,
+          "lookback_bars": 5,
+          "optimized": false,
+          "trend_threshold_bps": 20.0
+        },
+        "performance_claim_allowed": false,
+        "regime_truth_claimed": false,
+        "schema_version": "1.0.0",
+        "warmup_bars": 5
+      },
+      "scenario_id": "SCN-GAP-DOWN"
+    },
+    {
+      "definition_sha256": "8fde927a3c18f31117799e6351c93e4acbda0f6c51e32ca792f1b8ba5584fd19",
+      "observed_trend_classes": [
+        "DOWN",
+        "UP"
+      ],
+      "observed_volatility_classes": [
+        "HIGH",
+        "NORMAL"
+      ],
+      "regime_report": {
+        "artifact_id": "FQL-REGIME-LABELS-001",
+        "causality": "past_and_current_closed_bars_only",
+        "dataset": {
+          "bar_count": 12,
+          "classification": "MODELLED",
+          "instrument": "EUR/USD",
+          "sha256": "8fde927a3c18f31117799e6351c93e4acbda0f6c51e32ca792f1b8ba5584fd19",
+          "subtype": "DETERMINISTIC_STRESS"
+        },
+        "label_count": 7,
+        "labels": [
+          {
+            "available_to_system_at": "2026-02-06T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.004987541511038968,
+            "timestamp": "2026-02-06T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.025251253128124374,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-07T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.004987541511038968,
+            "timestamp": "2026-02-07T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.025251253128124374,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-08T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.004992551588719526,
+            "timestamp": "2026-02-08T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.015049748121874318,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-09T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.004997556643772519,
+            "timestamp": "2026-02-09T00:00:00+00:00",
+            "trend": "UP",
+            "trend_return": 0.004949750628124416,
+            "volatility": "NORMAL"
+          },
+          {
+            "available_to_system_at": "2026-02-10T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.005002556691273356,
+            "timestamp": "2026-02-10T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.005049749378125634,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-11T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.005007551746222181,
+            "timestamp": "2026-02-11T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.014949751871875527,
+            "volatility": "HIGH"
+          },
+          {
+            "available_to_system_at": "2026-02-12T00:00:00+00:00",
+            "lookback_bars": 5,
+            "rms_log_return": 0.005012541823544376,
+            "timestamp": "2026-02-12T00:00:00+00:00",
+            "trend": "DOWN",
+            "trend_return": -0.024751246878125355,
+            "volatility": "HIGH"
+          }
+        ],
+        "live_orders_forbidden": true,
+        "mode": "research_diagnostics_only",
+        "paper_trading_allowed": false,
+        "parameters": {
+          "high_volatility_threshold_bps": 50.0,
+          "lookback_bars": 5,
+          "optimized": false,
+          "trend_threshold_bps": 20.0
+        },
+        "performance_claim_allowed": false,
+        "regime_truth_claimed": false,
+        "schema_version": "1.0.0",
+        "warmup_bars": 5
+      },
+      "scenario_id": "SCN-REVERSAL"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "PASS_MECHANICAL_BRANCH_COVERAGE",
+  "subtype": "DETERMINISTIC_STRESS",
+  "suite_id": "STRESS-M0-REGIME-001",
+  "suite_path": "configs/stress/regime-branch-suite.json",
+  "suite_sha256": "f1a8a00cf7ce28c06dbc967827fac430947507bbbd8954d17c70ccdbd0d39c69"
+}

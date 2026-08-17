@@ -30,6 +30,7 @@
 | SUFF | отдельный warm-up каждого split, minimum scored bars и fail-closed criteria |
 | REGIME | warm-up, фиксированные пороги, timestamp доступности и неизменность от будущего бара |
 | ATTR | dataset hash, timestamps, warm-up coverage и запрет использования меток стратегией |
+| STRESS | deterministic fixtures, branch coverage, unique IDs и запрет исторических claims |
 
 ## Definition of Done
 

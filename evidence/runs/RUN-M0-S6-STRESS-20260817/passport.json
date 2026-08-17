@@ -1,0 +1,61 @@
+{
+  "artifact_id": "RUN-M0-S6-STRESS-20260817",
+  "artifact_type": "deterministic_regime_stress_run",
+  "purpose": "Cover every regime-classifier branch without tuning against market or PnL",
+  "owner_role": "AGT-RED-406",
+  "source_basis": ["evidence/runs/RUN-M0-S6-REGIME-20260816/acceptance.md", "docs/specifications/m0-s6-regime-stress-suite.md"],
+  "inputs": ["configs/stress/regime-branch-suite.json"],
+  "outputs": ["evidence/runs/RUN-M0-S6-STRESS-20260817/result.json"],
+  "relations": ["FQL-S6-STRESS-003", "ADR-0012", "FQL-REGIME-LABELS-001"],
+  "version": "1.0.0",
+  "sha256": "07f53e1e0f939ffa32dd308c893cf4a83666710381c590aef6a002cca32bccac",
+  "sha256_basis": "evidence/runs/RUN-M0-S6-STRESS-20260817/result.json",
+  "status": "ACCEPTED_MECHANICAL_BRANCH_COVERAGE_ONLY",
+  "lifecycle": {
+    "idea": "Cover classes absent from the short modelled sample without retuning thresholds",
+    "source": "Negative class coverage in RUN-M0-S6-REGIME-20260816",
+    "hypothesis": "Four deterministic return paths exercise every classifier branch",
+    "requirement": "FQL-S6-STRESS-003",
+    "design": "ADR-0012",
+    "code": "src/father_quant_lab/stress_scenarios.py",
+    "test": ["tests/test_stress_scenarios.py", "tests/test_cli.py"],
+    "run": "python -m father_quant_lab run-regime-stress",
+    "result": "PASS_MECHANICAL_BRANCH_COVERAGE; 4 scenarios; 28 labels",
+    "critique": "Constructed paths guarantee branch exercise and say nothing about likelihood or accuracy",
+    "decision": "Accept branch coverage; reject all market and performance inferences",
+    "lesson": "Missing sample classes should be tested with isolated fixtures, not threshold tuning"
+  },
+  "provenance": {
+    "suite_sha256": "f1a8a00cf7ce28c06dbc967827fac430947507bbbd8954d17c70ccdbd0d39c69",
+    "code_sha256": "5163da3c9888d391b6e86023b3286d3fb0dbca615f64af5897fc30d6d14d98c3",
+    "python": "3.12.13",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
+  },
+  "limitations": [
+    "Constructed MODELLED paths only",
+    "No historical likelihood or regime accuracy",
+    "No execution, spread, liquidity, events or strategy PnL",
+    "Coverage does not calibrate thresholds"
+  ],
+  "verification": [
+    "71 unit tests passed",
+    "all five regime classes observed",
+    "duplicate IDs and impossible returns fail closed",
+    "repeat execution is deterministic",
+    "compileall and git diff --check passed"
+  ],
+  "decision": "ACCEPT_BRANCH_COVERAGE_ONLY",
+  "lessons": [
+    "Synthetic fixtures are useful when clearly separated from evidence data",
+    "Branch coverage is not predictive validity",
+    "Do not trade or optimize against constructed stress paths"
+  ],
+  "safety": {
+    "historical_likelihood_claimed": false,
+    "performance_claim_allowed": false,
+    "paper_trading_allowed": false,
+    "live_orders_forbidden": true,
+    "real_money_used": false,
+    "secrets_used": false
+  }
+}

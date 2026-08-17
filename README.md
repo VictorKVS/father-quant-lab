@@ -205,6 +205,17 @@ python -m father_quant_lab attribute-regime-performance \
 Метки не передаются стратегии и не меняют заявки. Короткий MODELLED результат
 показывает только работу соединения timestamps, а не сравнительное качество режимов.
 
+Полнота ветвей проверяется отдельным синтетическим stress-pack без торговли:
+
+```bash
+python -m father_quant_lab run-regime-stress \
+  --suite configs/stress/regime-branch-suite.json \
+  --output evidence/local/regime-stress.json
+```
+
+Сценарии покрывают `UP/DOWN/RANGE` и `HIGH/NORMAL`, но являются только
+`MODELLED/DETERMINISTIC_STRESS`, а не реконструкцией истории или оценкой доходности.
+
 Документация реализации:
 
 - [Техническое задание M0 Control League](docs/specifications/m0-control-league.md)

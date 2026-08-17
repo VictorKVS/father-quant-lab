@@ -29,6 +29,7 @@ from .reference_data import (
 from .regimes import CausalRegimeClassifier, build_regime_report
 from .regime_attribution import attribute_result, load_regime_report
 from .strategies import control_strategies, first_rule_league
+from .stress_scenarios import load_stress_suite, run_stress_suite
 from .vendor_due_diligence import evaluate_dossiers, load_dossiers
 
 
@@ -103,6 +104,11 @@ def build_parser() -> argparse.ArgumentParser:
     attribution.add_argument("--output", type=Path, required=True)
     attribution.add_argument("--short-window", type=int, default=3)
     attribution.add_argument("--long-window", type=int, default=5)
+    stress = subparsers.add_parser(
+        "run-regime-stress", help="run deterministic MODELLED regime-branch scenarios"
+    )
+    stress.add_argument("--suite", type=Path, required=True)
+    stress.add_argument("--output", type=Path, required=True)
     return parser
 
 
@@ -290,6 +296,11 @@ def main(argv: list[str] | None = None) -> int:
             regime_report_path=args.regimes,
         )
         destination = write_json(args.output, report)
+        print(destination)
+        return 0
+    if args.command == "run-regime-stress":
+        result = run_stress_suite(load_stress_suite(args.suite), suite_path=args.suite)
+        destination = write_json(args.output, result)
         print(destination)
         return 0
     raise AssertionError("unreachable command")

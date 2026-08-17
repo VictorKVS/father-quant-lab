@@ -8,6 +8,24 @@ from father_quant_lab.cli import main
 
 
 class CliTests(unittest.TestCase):
+    def test_cli_runs_modelled_regime_stress_suite(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "stress.json"
+            exit_code = main(
+                [
+                    "run-regime-stress",
+                    "--suite",
+                    "configs/stress/regime-branch-suite.json",
+                    "--output",
+                    str(output),
+                ]
+            )
+            result = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(result["status"], "PASS_MECHANICAL_BRANCH_COVERAGE")
+        self.assertFalse(result["paper_trading_allowed"])
+        self.assertTrue(result["live_orders_forbidden"])
+
     def test_cli_attributes_regimes_without_using_them_for_decisions(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "attribution.json"
